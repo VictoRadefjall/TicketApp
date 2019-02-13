@@ -1,17 +1,21 @@
 <template>
-  <main>
+  <main id="buy">
     <p>You are about to score some tickets to</p>
 
-    <section>
-      <h2>event</h2>
-      <p>date + time</p>
-      <span>this place</span>
+    <br />
+
+    <section v-for="event in event" :key="event.id" :item="item">
+      <h2> {{ event.name }} </h2>
+      <p>{{ event.date }} {{ event.startTime }} - {{ event.endTime }}</p>
+      <span> @ {{ event.place }} </span> 
     </section>
 
-    <section class="rectangle">
-      <div id="price" class="item">pris</div>
+    <br />
+
+    <section v-for="event in event" :key="event.id" :item="item" class="rectangle">
+      <div id="price" class="item"> {{ totalCost }}:- </div>
       <div class="item calc" @click="dec">–</div>
-      <div class="item">{{ tickets }}</div>
+      <div class="item"> {{ tickets }} </div>
       <div class="item calc" @click="inc">+</div>
     </section>
 
@@ -25,10 +29,23 @@
 
 export default {
   name: 'buy',
+  props: ['item'],
   computed: {
     tickets() {
       return this.$store.state.tickets;
-    }
+    },
+    events() {
+      return this.$store.state.events;
+    },
+    event() {
+      var name = this.$route.params.name;
+      return this.$store.state.events.filter(function(event) {
+        return event.name == name
+      })
+    },
+    totalCost() {
+      return this.event[0].price * this.$store.state.tickets;
+    },
   },
   methods: {
     inc() {
@@ -54,13 +71,18 @@ export default {
 
     #price {
       grid-column: 1 / span 3;
+
+      div {
+        box-shadow: 5px 3px 0px #658;
+      }
     }
 
     .item {
       border: 1px solid red;
       padding: 2rem;
-      background: linen;
-    }
+      color: white;
+      background: #333;
+    } 
   }
 
 a {
@@ -68,7 +90,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: pink;
+    background: violet;
     color: white;
     height: 3rem;
     border-radius: 3px;
@@ -78,7 +100,7 @@ a {
   }
 
   &:hover {
-    background: darkred;
+    background: purple;
   }
 
 }
