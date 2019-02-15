@@ -1,0 +1,180 @@
+<template>
+
+    <main>
+        <div class="ticket-shadow2"></div>
+        <div class="ticket-shadow1"></div>
+
+            <div class="ticket-box">
+
+                <div class="eventname rounded">
+                    <p class="desc">What</p>
+                    <h2>Lasse-Stefanz</h2>
+                </div>
+
+                <div class="event-where rounded">
+                    <p class="desc">Where</p>
+                    <h3>Kjell Härnqvist Salen</h3>
+                    <p class="adress">Göteborgs Operan, strandv 13, Hus B,  GBG</p>
+                </div>
+
+                
+                    <div class="one">
+                        <p class="desc">when</p>
+                        <p class="info">21 mar</p>
+                    </div>
+
+                    <div class="two">
+                        <p class="desc">from</p>
+                        <p class="info">19:00</p>
+                    </div>
+
+                    <div class="three">
+                        <p class="desc">to</p>
+                        <p class="info">22:00</p>
+                    </div>
+                
+
+                <div class="event-place rounded">
+                    <p class="desc">Info</p>
+                     <p class="adress">Ståplats, ingen reservation, ta med öronproppar</p>
+                </div>
+                <div class="barcode rounded">
+                    <p class="code">A2ED78V</p>
+                </div>
+            </div>
+    </main>
+</template>
+
+<script>
+export default {
+    name:'ticket',
+    props: ['ticket']
+
+}
+</script>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Libre+Barcode+39+Text|Sansita');
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(17, 17, 27, 0.932);
+}
+
+.ticket-shadow1, .ticket-shadow2 {
+    border-top: 4px solid rgb(236, 127, 127);
+    border-radius: 2.5px;
+
+}
+
+.ticket-shadow2 {
+    height: 0.6rem;
+    width: 75%;
+    max-width: 18rem;
+    margin-top: 2rem;
+    background: rgba(252, 249, 249, 0.322);
+}
+
+.ticket-shadow1 {
+    height: .9rem;
+    max-width: 19rem;
+    width: 80%;
+    background: rgba(252, 249, 249, 0.527);
+}
+
+.ticket-box {
+    max-width: 20rem;
+    width: 90%;
+    height: auto;
+    padding: 5px;
+    /* background-image: linear-gradient( #a3eb6a, #6cca51, #fa6095); */
+    background-image: linear-gradient( #ff67b3, #422d74); 
+    /* background: rgb(241, 163, 46); */
+    border-top: 8px solid rgb(236, 127, 127);
+    border-radius: 5px;
+    margin-bottom: 3.12rem; /* 50px/16px*/
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 5px;
+    grid-template-rows: 5px 100px 5px 150px 5px 100px 5px 100px 5px 100px 5px;
+    grid-template-areas: 
+    ". . ."
+    "eventname eventname eventname"
+    ". . ."
+    "event-where event-where event-where"
+    ". . ."
+    "one two three"
+    ". . ."
+    "place place place"
+    ". . ."
+    "barcode barcode barcode"
+    ". . ."
+    ;
+}
+
+/*       Grid areas & relations     */
+
+.eventname {
+    grid-area: eventname;
+    background: rgba(225, 228, 225, 0.637);
+    margin: 0 5px 0 5px 0;
+}
+.eventname h2 {
+    font-family: 'Sansita', sans-serif;
+    letter-spacing: 0.1rem;
+}
+.event-where {
+    grid-area: event-where;
+    background: rgba(225, 228, 225, 0.637);
+}
+.one {
+    grid-area: one;
+    background: rgba(225, 228, 225, 0.637);
+}
+.two {
+    grid-area: two;
+    background: rgba(225, 228, 225, 0.637);
+}
+.three {
+    grid-area: three;
+    background: rgba(225, 228, 225, 0.637);
+}
+.event-place {
+    grid-area: place;
+    background: rgba(225, 228, 225, 0.637);
+}
+.barcode {
+    grid-area: barcode;
+    background: rgba(225, 228, 225, 0.637);
+}
+
+p.desc {
+    font-family: 'Fira Sans', sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+p.code {
+    font-family: 'Libre Barcode 39 Text', cursive;
+    font-size: 5rem;
+    color: rgb(73, 73, 73);
+    margin-top: 1rem;
+}
+
+
+/* Extras */
+.rounded {
+    border-radius: 6px;
+}
+
+.adress {
+    font-size: 0.85rem;
+}
+
+
+
+</style>
