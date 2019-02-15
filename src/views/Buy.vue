@@ -21,7 +21,9 @@
 
     <br/>
 
-    <a class="btn" @click="$router.push('/tickets')">Consume my para $$$</a>
+    <router-link :to="{ name: 'tickets', params: { code: event } }"> 
+      <a class="btn">Consume my para $$$</a>
+    </router-link>
   </main>
 </template>
 
@@ -59,6 +61,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../scss/main.scss';
 
 .rectangle {
     display: grid;
@@ -91,6 +94,7 @@ a {
     justify-content: center;
     align-items: center;
     background: violet;
+    cursor: pointer;
     color: white;
     height: 3rem;
     border-radius: 3px;

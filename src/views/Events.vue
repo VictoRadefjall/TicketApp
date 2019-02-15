@@ -28,6 +28,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Sansita');
 
   #events {
+    background: $background-color;
     display: flex;
     flex-direction: column;
 
@@ -50,5 +51,9 @@ export default {
       padding: 1rem;
     }
   }
+
+#events {
+  background: $background-color;
+}
 
 </style>
