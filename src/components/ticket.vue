@@ -62,6 +62,7 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans|Libre+Barcode+39+Text|Sansita');
+@import '../scss/main.scss';
 
 main {
     display: flex;

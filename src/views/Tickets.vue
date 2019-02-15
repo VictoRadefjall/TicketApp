@@ -20,5 +20,11 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../scss/main.scss';
+
+main {
+  background: $background-color;
+  color: white;
+}
 
 </style>

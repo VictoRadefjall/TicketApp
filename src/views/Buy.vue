@@ -61,6 +61,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../scss/main.scss';
 
 .rectangle {
     display: grid;
@@ -93,6 +94,7 @@ a {
     justify-content: center;
     align-items: center;
     background: violet;
+    cursor: pointer;
     color: white;
     height: 3rem;
     border-radius: 3px;

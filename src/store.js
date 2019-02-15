@@ -21,7 +21,7 @@ export default new Vuex.Store({
       {
         name: "Klubb Untz",
         place: "Din favoritkällare",
-        adress: "Avenyyyyn 1",
+        adress: "Avenyyyyn 2",
         price: 110,
         date: "17 april",
         startTime: "22:00",
