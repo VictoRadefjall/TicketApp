@@ -15,19 +15,19 @@ export default new Router({
       component: Home
     },
     {
-      path: '/buy',
-      name: 'buy',
-      component: Buy
-    },
-    {
-      path: '/tickets',
-      name: 'tickets',
-      component: Tickets
-    },
-    {
       path: '/events',
       name: 'events',
       component: Events
-    }
+    },
+    {
+      path: '/:name',
+      name: 'name',
+      component: Buy
+    },
+    {
+      path: '/:name/tickets',
+      name: 'tickets',
+      component: Tickets
+    },
   ]
 })

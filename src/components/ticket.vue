@@ -4,33 +4,33 @@
         <div class="ticket-shadow2"></div>
         <div class="ticket-shadow1"></div>
 
-            <div class="ticket-box">
+            <div class="ticket-box" v-for="event in event" :key="event.id" :item="item">
 
                 <div class="eventname rounded">
                     <p class="desc">What</p>
-                    <h2>Lasse-Stefanz</h2>
+                    <h2> {{ event.name }} </h2>
                 </div>
 
                 <div class="event-where rounded">
                     <p class="desc">Where</p>
-                    <h3>Kjell Härnqvist Salen</h3>
-                    <p class="adress">Göteborgs Operan, strandv 13, Hus B,  GBG</p>
+                    <h3> {{ event.place }} </h3>
+                    <p class="adress"> {{ event.adress }}</p>
                 </div>
 
                 
                     <div class="one">
                         <p class="desc">when</p>
-                        <p class="info">21 mar</p>
+                        <p class="info">{{ event.date }}</p>
                     </div>
 
                     <div class="two">
                         <p class="desc">from</p>
-                        <p class="info">19:00</p>
+                        <p class="info">{{ event.startTime }}</p>
                     </div>
 
                     <div class="three">
                         <p class="desc">to</p>
-                        <p class="info">22:00</p>
+                        <p class="info">{{ event.endTime }}</p>
                     </div>
                 
 
@@ -39,7 +39,7 @@
                      <p class="adress">Ståplats, ingen reservation, ta med öronproppar</p>
                 </div>
                 <div class="barcode rounded">
-                    <p class="code">A2ED78V</p>
+                    <p class="code"> {{ event.code }} </p>
                 </div>
             </div>
     </main>
@@ -48,13 +48,21 @@
 <script>
 export default {
     name:'ticket',
-    props: ['ticket']
-
+    props: ['ticket', 'item'],
+    computed: {
+    event() {
+      var name = this.$route.params.name;
+      return this.$store.state.events.filter(function(event) {
+        return event.name == name
+      })
+    },
+  },
 }
 </script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans|Libre+Barcode+39+Text|Sansita');
+@import '../scss/main.scss';
 
 main {
     display: flex;
@@ -65,10 +73,16 @@ main {
     /* background: rgb(184, 184, 184); */
 }
 
-.ticket-shadow1, .ticket-shadow2 {
-    border-top: 4px solid rgba(236, 127, 127, 0.753);
-    border-radius: 2.5px;
 
+
+/* TICKET SHADOWS */
+.ticket-shadow1, .ticket-shadow2 {
+<<<<<<< HEAD
+    border-top: 4px solid rgba(236, 127, 127, 0.753);
+=======
+    border-top: 5px solid rgb(255, 136, 0);
+>>>>>>> ea26fbc78dd025f88d6faf91c36f4e33ae79d4cc
+    border-radius: 2.5px;
 }
 
 .ticket-shadow2 {
@@ -86,16 +100,24 @@ main {
     background: rgba(252, 249, 249, 0.527);
 }
 
+
+  /* GRID LAYOUT */
+
 .ticket-box {
     max-width: 20rem;
     width: 90%;
     height: auto;
     padding: 5px;
+<<<<<<< HEAD
     /* background-image: linear-gradient( #a3eb6a, #6cca51, #fa6095); */
     background-image: linear-gradient( #ff67b3, #422d74); 
     /* background-image: linear-gradient( #ffaf20, #0e3749);  */
     /* background: rgb(241, 163, 46); */
     border-top: 8px solid rgb(236, 127, 127);
+=======
+    background-image: linear-gradient( rgb(241, 163, 46), #D97119);  
+    border-top: 8px solid rgb(255, 136, 0);
+>>>>>>> ea26fbc78dd025f88d6faf91c36f4e33ae79d4cc
     border-radius: 5px;
     margin-bottom: 3.12rem; /* 50px/16px*/
     display: grid;
@@ -127,6 +149,7 @@ main {
 .eventname h2 {
     font-family: 'Sansita', sans-serif;
     letter-spacing: 0.1rem;
+    color: rgb(73, 73, 73);
 }
 .event-where {
     grid-area: event-where;
@@ -158,7 +181,7 @@ main {
 
 p.desc {
     font-family: 'Fira Sans', sans-serif;
-    color: rgb(255, 255, 255);
+    color: #ff7100;
     font-size: 0.8rem;
     text-transform: uppercase;
 }
@@ -179,7 +202,6 @@ p.code {
 .adress {
     font-size: 0.85rem;
 }
-
 
 
 </style>
