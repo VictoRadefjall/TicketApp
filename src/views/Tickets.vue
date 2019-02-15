@@ -1,13 +1,12 @@
 <template>
 
 <main>
-  <ticket></ticket>  /* v-for="(item, index) of ticket" :key="index" :ticket="ticket"*/
+  <ticket></ticket> 
 </main>
 
 </template>
 
 <script>
-
 import ticket from "@/components/ticket";
 
 export default {

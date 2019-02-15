@@ -15,11 +15,6 @@ export default new Router({
       component: Home
     },
     {
-      path: '/tickets',
-      name: 'tickets',
-      component: Tickets
-    },
-    {
       path: '/events',
       name: 'events',
       component: Events
@@ -28,6 +23,11 @@ export default new Router({
       path: '/:name',
       name: 'name',
       component: Buy
+    },
+    {
+      path: '/:name/tickets',
+      name: 'tickets',
+      component: Tickets
     },
   ]
 })

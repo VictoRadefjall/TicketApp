@@ -21,7 +21,9 @@
 
     <br/>
 
-    <a class="btn" @click="$router.push('/tickets')">Consume my para $$$</a>
+    <router-link :to="{ name: 'tickets', params: { code: event } }"> 
+      <a class="btn">Consume my para $$$</a>
+    </router-link>
   </main>
 </template>
 
