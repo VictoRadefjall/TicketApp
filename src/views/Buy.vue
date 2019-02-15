@@ -20,11 +20,12 @@
     </section>
 
     <div class="button">
-      <a class="btn" @click="$router.push('/tickets')">SPEND MY CA$H</a>
+      <router-link :to="{ name: 'tickets', params: { code: event } }"> 
+      <a class="btn">Consume my para $$$</a>
+    </router-link>
     </div>
 
     </section>
-
   </main>
 
 </template>
@@ -104,6 +105,7 @@ main {
   color: rgb(201, 80, 11);
   font-size: 1.1rem;
 }
+@import '../scss/main.scss';
 
 .event {
   grid-area: event;
@@ -168,6 +170,7 @@ div {
   grid-area: btn;
   display: flex;
   align-items: baseline;
+  justify-content: center;
 }
 
 

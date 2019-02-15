@@ -4,33 +4,33 @@
         <div class="ticket-shadow2"></div>
         <div class="ticket-shadow1"></div>
 
-            <div class="ticket-box">
+            <div class="ticket-box" v-for="event in event" :key="event.id" :item="item">
 
                 <div class="eventname rounded">
                     <p class="desc">What</p>
-                    <h2>Lasse-Stefanz</h2>
+                    <h2> {{ event.name }} </h2>
                 </div>
 
                 <div class="event-where rounded">
                     <p class="desc">Where</p>
-                    <h3>Kjell Härnqvist Salen</h3>
-                    <p class="adress">Göteborgs Operan, strandv 13, Hus B,  GBG</p>
+                    <h3> {{ event.place }} </h3>
+                    <p class="adress"> {{ event.adress }}</p>
                 </div>
 
                 
                     <div class="one">
                         <p class="desc">when</p>
-                        <p class="info">21 mar</p>
+                        <p class="info">{{ event.date }}</p>
                     </div>
 
                     <div class="two">
                         <p class="desc">from</p>
-                        <p class="info">19:00</p>
+                        <p class="info">{{ event.startTime }}</p>
                     </div>
 
                     <div class="three">
                         <p class="desc">to</p>
-                        <p class="info">22:00</p>
+                        <p class="info">{{ event.endTime }}</p>
                     </div>
                 
 
@@ -39,7 +39,7 @@
                      <p class="adress">Ståplats, ingen reservation, ta med öronproppar</p>
                 </div>
                 <div class="barcode rounded">
-                    <p class="code">A2ED78V</p>
+                    <p class="code"> {{ event.code }} </p>
                 </div>
             </div>
     </main>
@@ -48,13 +48,21 @@
 <script>
 export default {
     name:'ticket',
-    props: ['ticket']
-
+    props: ['ticket', 'item'],
+    computed: {
+    event() {
+      var name = this.$route.params.name;
+      return this.$store.state.events.filter(function(event) {
+        return event.name == name
+      })
+    },
+  },
 }
 </script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans|Libre+Barcode+39+Text|Sansita');
+@import '../scss/main.scss';
 
 main {
     display: flex;
@@ -68,9 +76,8 @@ main {
 
 /* TICKET SHADOWS */
 .ticket-shadow1, .ticket-shadow2 {
-    border-top: 8px solid rgb(255, 136, 0);
+    border-top: 5px solid rgb(255, 136, 0);
     border-radius: 2.5px;
-
 }
 
 .ticket-shadow2 {

@@ -22,12 +22,7 @@ export default {
 </script>
 
 <style lang="scss">
-
-%center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+@import '../scss/main.scss';
 
 .event {
   display: flex;
