@@ -1,7 +1,8 @@
 <template>
 <main id="events">
   <h1>Events</h1>
-    <event v-for="(item, index) in events" :key="index" :item="item" />
+  <input type="text" name="" value="Search for events">
+  <event v-for="(item, index) in events" :key="index" :item="item" />
 </main>
 </template>
 
@@ -22,6 +23,32 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+@import url('https://fonts.googleapis.com/css?family=Sansita');
+
+  #events {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-family: Sansita;
+      font-weight: bold;
+      font-style: italic;
+      color: HotPink;
+      font-size: 3rem;
+    }
+    input {
+      flex: 1;
+      background-color: rgba(192,192,192,0.5);
+      color: Silver;
+      font-size: 1rem;
+      font-style: italic;
+      border: none;
+      border-radius: 3px;
+      margin: 0 3rem;
+      padding: 1rem;
+    }
+  }
 
 </style>
