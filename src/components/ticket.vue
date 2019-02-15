@@ -62,10 +62,11 @@ main {
     align-items: center;
     flex-direction: column;
     background: rgba(17, 17, 27, 0.932);
+    /* background: rgb(184, 184, 184); */
 }
 
 .ticket-shadow1, .ticket-shadow2 {
-    border-top: 4px solid rgb(236, 127, 127);
+    border-top: 4px solid rgba(236, 127, 127, 0.753);
     border-radius: 2.5px;
 
 }
@@ -92,6 +93,7 @@ main {
     padding: 5px;
     /* background-image: linear-gradient( #a3eb6a, #6cca51, #fa6095); */
     background-image: linear-gradient( #ff67b3, #422d74); 
+    /* background-image: linear-gradient( #ffaf20, #0e3749);  */
     /* background: rgb(241, 163, 46); */
     border-top: 8px solid rgb(236, 127, 127);
     border-radius: 5px;
@@ -99,7 +101,7 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 5px;
-    grid-template-rows: 5px 100px 5px 150px 5px 100px 5px 100px 5px 100px 5px;
+    grid-template-rows: 5px 100px 5px 150px 5px 75px 5px 100px 5px 100px 5px;
     grid-template-areas: 
     ". . ."
     "eventname eventname eventname"
@@ -133,14 +135,17 @@ main {
 .one {
     grid-area: one;
     background: rgba(225, 228, 225, 0.637);
+
 }
 .two {
     grid-area: two;
     background: rgba(225, 228, 225, 0.637);
+    
 }
 .three {
     grid-area: three;
     background: rgba(225, 228, 225, 0.637);
+    
 }
 .event-place {
     grid-area: place;
@@ -161,7 +166,7 @@ p.desc {
 p.code {
     font-family: 'Libre Barcode 39 Text', cursive;
     font-size: 5rem;
-    color: rgb(73, 73, 73);
+    color: rgb(36, 36, 36);
     margin-top: 1rem;
 }
 
