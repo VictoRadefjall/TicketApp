@@ -31,7 +31,7 @@ export default {
 
 .event {
   display: flex;
-  border: 1px solid #eee;
+  // border: 1px solid #eee;
 
   section {
     background-color: Azure;
