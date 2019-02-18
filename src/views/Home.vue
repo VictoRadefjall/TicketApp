@@ -1,4 +1,6 @@
 <template>
+
+
   <div id="home">
     <img src="../assets/logo.png" alt="Where It's @ logo" title="Where It's @ logo">
     <h1 class="title">Where It's &#64;</h1>
@@ -7,6 +9,8 @@
     <a class="btn" @click="$router.push('/events')">Go to events</a>
 
   </div>
+
+
 </template>
 
 <script>

@@ -4,12 +4,12 @@
 
     <section v-for="event in event" :key="event.id" :item="item" class="buy">
 
-    <p class="intro">You are about to score some tickets to</p>    
+    <p class="intro">You are about to score some tickets to</p>
 
-    <section class="event">
+    <section class="event-info">
       <h2> {{ event.name }} </h2>
       <p>{{ event.date.date }} {{ event.date.month }} {{ event.startTime }} - {{ event.endTime }}</p>
-      <span> @ {{ event.place }} </span> 
+      <span> @ {{ event.place }} </span>
     </section>
 
     <section class="rectangle">
@@ -20,8 +20,8 @@
     </section>
 
     <div class="button">
-      <router-link :to="{ name: 'tickets', params: { code: event } }"> 
-      <a class="btn">Consume my para $$$</a>
+      <router-link :to="{ name: 'tickets', params: { code: event } }">
+      <a class="btn">Pay for my ticket(S)</a>
     </router-link>
     </div>
 
@@ -78,16 +78,16 @@ main {
     max-width: 22rem;
     width: 100%;
     height: auto;
-    padding: 15px;
+    padding: 5px;
     margin: auto;
-    background-image: linear-gradient( rgb(241, 163, 46), #D97119);    
+    margin-bottom: 3.12rem; /* 50px/16px*/
+    background-image: linear-gradient( rgb(241, 163, 46), #D97119);
     border-top: 8px solid rgb(201, 80, 11);
     border-radius: 5px;
-    margin-bottom: 3.12rem; /* 50px/16px*/
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 20px 50px 5px 150px 5px 200px 25px 100px;
-    grid-template-areas: 
+    grid-template-areas:
     "."
     "intro"
     "."
@@ -96,7 +96,7 @@ main {
     "rectangle"
     "."
     "btn"
-    ; 
+    ;
 }
 
 .intro {
@@ -107,12 +107,15 @@ main {
 }
 @import '../scss/main.scss';
 
-.event {
+.event-info {
+  width: 100%;
+  // background: #fff;
   grid-area: event;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.836);  
+  margin: 0;
+  color: rgba(255, 255, 255, 0.836);
 }
 
 
@@ -135,7 +138,7 @@ main {
       border: 1px solid rgb(201, 80, 11);
       padding: 2rem;
       color: white;
-    } 
+    }
   }
 
 a {
@@ -147,17 +150,17 @@ a {
     align-items: center;
     border: solid 1px rgba(255, 255, 255, 0.842);
     color: rgb(255, 251, 232);
-    height: 3rem;
+    height: 2.5rem;
     border-radius: 3px;
-    width: 100%;
-    max-width: 350px;
-    margin: auto;
-    padding: .5rem;
+    max-width: 20rem;
+    padding: .8rem;
   }
 
   &:hover {
-    color: rgba(0, 0, 0, 0.822);
-    background: rgb(253, 255, 126);
+    color: rgba(255, 229, 83, 0.788);
+    // font-size: 1.2rem;
+    text-transform: uppercase;
+    text-decoration: underline;
   }
 
 }
@@ -171,7 +174,7 @@ div {
 .button {
   grid-area: btn;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: center;
 }
 
