@@ -55,7 +55,8 @@ export default {
     flex-direction: column;
     background: #FF67B3;
     margin: auto;
-    width: 30vw;
+    width: 75vw;
+    max-width: 500px;
     border-radius: 10px;
 
       input[type="text"] {
@@ -67,7 +68,7 @@ export default {
         border: none;
         color: white;
         font-size: 1.5em;
-        caret-color: orange;
+        caret-color: HotPink;
       }
       a {
         text-decoration: none;
