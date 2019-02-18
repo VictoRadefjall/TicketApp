@@ -4,12 +4,12 @@
 
     <section v-for="event in event" :key="event.id" :item="item" class="buy">
 
-    <p class="intro">You are about to score some tickets to</p>    
+    <p class="intro">You are about to score some tickets to</p>
 
     <section class="event-info">
       <h2> {{ event.name }} </h2>
-      <p>{{ event.date.month }} {{ event.startTime }} - {{ event.endTime }}</p>
-      <span> @ {{ event.place }} </span> 
+      <p>{{ event.date.date }} {{ event.date.month }} {{ event.startTime }} - {{ event.endTime }}</p>
+      <span> @ {{ event.place }} </span>
     </section>
 
     <section class="rectangle">
@@ -20,7 +20,7 @@
     </section>
 
     <div class="button">
-      <router-link :to="{ name: 'tickets', params: { code: event } }"> 
+      <router-link :to="{ name: 'tickets', params: { code: event } }">
       <a class="btn">Pay for my ticket(S)</a>
     </router-link>
     </div>
@@ -81,13 +81,13 @@ main {
     padding: 5px;
     margin: auto;
     margin-bottom: 3.12rem; /* 50px/16px*/
-    background-image: linear-gradient( rgb(241, 163, 46), #D97119);    
+    background-image: linear-gradient( rgb(241, 163, 46), #D97119);
     border-top: 8px solid rgb(201, 80, 11);
     border-radius: 5px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 20px 50px 5px 150px 5px 200px 25px 100px;
-    grid-template-areas: 
+    grid-template-areas:
     "."
     "intro"
     "."
@@ -96,7 +96,7 @@ main {
     "rectangle"
     "."
     "btn"
-    ; 
+    ;
 }
 
 .intro {
@@ -115,7 +115,7 @@ main {
   flex-direction: column;
   justify-content: center;
   margin: 0;
-  color: rgba(255, 255, 255, 0.836);  
+  color: rgba(255, 255, 255, 0.836);
 }
 
 
@@ -138,7 +138,7 @@ main {
       border: 1px solid rgb(201, 80, 11);
       padding: 2rem;
       color: white;
-    } 
+    }
   }
 
 a {

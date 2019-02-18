@@ -5,11 +5,23 @@
       <router-link to="/events">Events</router-link> |
       <router-link to="/buy">Buy</router-link> |
       <router-link to="/tickets">Tickets</router-link> |
+      <router-link to="/staff/verify">Verify</router-link> |
       <router-link to="/admin">Admin</router-link>
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+
+export default {
+  name: 'App',
+  beforeMount() {
+    this.$store.dispatch('getEvents');
+  }
+}
+
+</script>
 
 <style lang="scss">
 @import './scss/main.scss';
@@ -18,6 +30,7 @@
   background: $background-color;
 }
 
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -25,6 +38,7 @@
   text-align: center;
   // color: #2c3e50;
 }
+
 #nav {
   padding: 30px;
   a {

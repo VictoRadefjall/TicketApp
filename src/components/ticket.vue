@@ -17,7 +17,7 @@
                     <p class="adress"> {{ event.adress }}</p>
                 </div>
 
-                
+
                     <div class="one">
                         <p class="desc">when</p>
                         <p class="info">{{ event.date.month }}</p>
@@ -32,7 +32,7 @@
                         <p class="desc">to</p>
                         <p class="info">{{ event.endTime }}</p>
                     </div>
-                
+
 
                 <div class="event-place rounded">
                     <p class="desc">Info</p>
@@ -103,7 +103,7 @@ main {
     width: 100%;
     height: auto;
     padding: 5px;
-    background-image: linear-gradient( rgb(241, 163, 46), #D97119);  
+    background-image: linear-gradient( rgb(241, 163, 46), #D97119);
     border-top: 8px solid rgb(255, 136, 0);
     border-radius: 5px;
     margin-bottom: 3.12rem; /* 50px/16px*/
@@ -111,7 +111,7 @@ main {
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 5px;
     grid-template-rows: 5px 100px 5px 150px 5px 75px 5px 100px 5px 100px 5px;
-    grid-template-areas: 
+    grid-template-areas:
     ". . ."
     "eventname eventname eventname"
     ". . ."
@@ -150,12 +150,12 @@ main {
 .two {
     grid-area: two;
     background: rgba(225, 228, 225, 0.637);
-    
+
 }
 .three {
     grid-area: three;
     background: rgba(225, 228, 225, 0.637);
-    
+
 }
 .event-place {
     grid-area: place;

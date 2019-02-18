@@ -9,7 +9,7 @@
             <img src="../assets/logo.png" alt="Where It's atlogo" style="width: 50px;height: 50px;" />
         </div>
 
-        
+
         <div class="events-list">
         <div class="headings">
             <h3>Name</h3> 
@@ -61,7 +61,7 @@
                     </form>
                 </div>
             </div>
-        
+
     </div>
 </main>
 
@@ -72,7 +72,7 @@
 
 export default {
     name: 'admin',
-    
+
     computed: {
     events() {
       return this.$store.state.events;
@@ -91,7 +91,7 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 75px 500px;
-    grid-template-areas: 
+    grid-template-areas:
     "logo logo"
     "left right"
     ;
