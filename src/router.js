@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Buy from './views/Buy.vue'
 import Tickets from './views/Tickets.vue'
 import Events from './views/Events.vue'
+import Admin from './views/Admin.vue'
 
 Vue.use(Router)
 
@@ -13,6 +14,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: Admin
     },
     {
       path: '/events',
@@ -28,6 +34,6 @@ export default new Router({
       path: '/:name/tickets',
       name: 'tickets',
       component: Tickets
-    },
+    }
   ]
 })

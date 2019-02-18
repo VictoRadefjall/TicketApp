@@ -85,7 +85,6 @@ main {
     height: 0.6rem;
     width: 75%;
     max-width: 18rem;
-    margin-top: 2rem;
     background: rgba(252, 249, 249, 0.322);
 }
 
@@ -97,11 +96,11 @@ main {
 }
 
 
-  /* GRID LAYOUT */
+  /* GRID AREAS & LAYOUT */
 
 .ticket-box {
     max-width: 22rem;
-    width: 90%;
+    width: 100%;
     height: auto;
     padding: 5px;
     background-image: linear-gradient( rgb(241, 163, 46), #D97119);  

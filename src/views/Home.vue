@@ -3,7 +3,7 @@
 
   <div id="home">
 
-    <img src="../assets/logo.png" alt="Where It's @ logo" />
+    <img src="../assets/logo.png" alt="Where It's atlogo" />
     <h1 class="title">Where It's @</h1>
     <span>Tickets for every moment</span>
 

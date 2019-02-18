@@ -78,12 +78,12 @@ main {
     max-width: 22rem;
     width: 100%;
     height: auto;
-    padding: 15px;
+    padding: 5px;
     margin: auto;
+    margin-bottom: 3.12rem; /* 50px/16px*/
     background-image: linear-gradient( rgb(241, 163, 46), #D97119);    
     border-top: 8px solid rgb(201, 80, 11);
     border-radius: 5px;
-    margin-bottom: 3.12rem; /* 50px/16px*/
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 20px 50px 5px 150px 5px 200px 25px 100px;
@@ -156,7 +156,7 @@ a {
 
   &:hover {
     color: rgba(255, 229, 83, 0.788);
-    font-size: 1.2rem;
+    // font-size: 1.2rem;
     text-transform: uppercase;
     text-decoration: underline;
   }

@@ -4,7 +4,8 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/events">Events</router-link> |
       <router-link to="/buy">Buy</router-link> |
-      <router-link to="/tickets">Tickets</router-link>
+      <router-link to="/tickets">Tickets</router-link> |
+      <router-link to="/admin">Admin</router-link>
     </div>
     <router-view/>
   </div>
@@ -28,7 +29,7 @@
   padding: 30px;
   a {
     font-weight: bold;
-    color: #5b5e6b;
+    color: #f3b01e;
     &.router-link-exact-active {
       color: #42b983;
     }
