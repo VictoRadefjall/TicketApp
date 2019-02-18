@@ -69,7 +69,7 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: rgba(17, 17, 27, 0.932);
+    /* background: rgba(17, 17, 27, 0.932); */
     /* background: rgb(184, 184, 184); */
 }
 
@@ -77,11 +77,7 @@ main {
 
 /* TICKET SHADOWS */
 .ticket-shadow1, .ticket-shadow2 {
-<<<<<<< HEAD
-    border-top: 4px solid rgba(236, 127, 127, 0.753);
-=======
     border-top: 5px solid rgb(255, 136, 0);
->>>>>>> ea26fbc78dd025f88d6faf91c36f4e33ae79d4cc
     border-radius: 2.5px;
 }
 
@@ -95,7 +91,7 @@ main {
 
 .ticket-shadow1 {
     height: .9rem;
-    max-width: 19rem;
+    max-width: 20rem;
     width: 80%;
     background: rgba(252, 249, 249, 0.527);
 }
@@ -104,20 +100,12 @@ main {
   /* GRID LAYOUT */
 
 .ticket-box {
-    max-width: 20rem;
+    max-width: 22rem;
     width: 90%;
     height: auto;
     padding: 5px;
-<<<<<<< HEAD
-    /* background-image: linear-gradient( #a3eb6a, #6cca51, #fa6095); */
-    background-image: linear-gradient( #ff67b3, #422d74); 
-    /* background-image: linear-gradient( #ffaf20, #0e3749);  */
-    /* background: rgb(241, 163, 46); */
-    border-top: 8px solid rgb(236, 127, 127);
-=======
     background-image: linear-gradient( rgb(241, 163, 46), #D97119);  
     border-top: 8px solid rgb(255, 136, 0);
->>>>>>> ea26fbc78dd025f88d6faf91c36f4e33ae79d4cc
     border-radius: 5px;
     margin-bottom: 3.12rem; /* 50px/16px*/
     display: grid;
