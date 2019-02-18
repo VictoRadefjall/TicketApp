@@ -51,8 +51,8 @@ a {
 
   .date { // datumrutan
     div {
-      width: 90px;
-      height: 90px;
+      width: 80px;
+      height: 80px;
       @extend %center;
       flex-direction: column;
       border: 2px solid White;
