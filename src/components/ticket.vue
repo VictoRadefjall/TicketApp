@@ -20,7 +20,7 @@
                 
                     <div class="one">
                         <p class="desc">when</p>
-                        <p class="info">{{ event.date }}</p>
+                        <p class="info">{{ event.date.month }}</p>
                     </div>
 
                     <div class="two">
@@ -90,7 +90,7 @@ main {
 
 .ticket-shadow1 {
     height: .9rem;
-    max-width: 19rem;
+    max-width: 20rem;
     width: 80%;
     background: rgba(252, 249, 249, 0.527);
 }
@@ -99,7 +99,7 @@ main {
   /* GRID LAYOUT */
 
 .ticket-box {
-    max-width: 20rem;
+    max-width: 22rem;
     width: 90%;
     height: auto;
     padding: 5px;
