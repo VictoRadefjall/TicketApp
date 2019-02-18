@@ -20,7 +20,7 @@
                 
                     <div class="one">
                         <p class="desc">when</p>
-                        <p class="info">{{ event.date }}</p>
+                        <p class="info">{{ event.date.date }} {{ event.date.month }}</p>
                     </div>
 
                     <div class="two">
