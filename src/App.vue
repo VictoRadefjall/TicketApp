@@ -5,7 +5,8 @@
       <router-link to="/events">Events</router-link> |
       <router-link to="/buy">Buy</router-link> |
       <router-link to="/tickets">Tickets</router-link> |
-       <router-link to="/staff/verify">Verify</router-link>
+      <router-link to="/staff/verify">Verify</router-link> |
+      <router-link to="/admin">Admin</router-link>
     </div>
     <router-view/>
   </div>
@@ -35,14 +36,14 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  // color: #2c3e50;
 }
 
 #nav {
   padding: 30px;
   a {
     font-weight: bold;
-    color: #5b5e6b;
+    color: #f3b01e;
     &.router-link-exact-active {
       color: #42b983;
     }
