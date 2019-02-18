@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Buy from './views/Buy.vue'
 import Tickets from './views/Tickets.vue'
 import Events from './views/Events.vue'
+import Staff from './views/Staff.vue'
 
 Vue.use(Router)
 
@@ -20,7 +21,7 @@ export default new Router({
       component: Events
     },
     {
-      path: '/:name',
+      path: '/events/:name',
       name: 'name',
       component: Buy
     },
@@ -28,6 +29,15 @@ export default new Router({
       path: '/:name/tickets',
       name: 'tickets',
       component: Tickets
+    },
+    {
+      path: '/staff/verify',
+      name: 'staff',
+      component: Staff
+    },
+    {
+      path: '*',
+      redirect: '/'
     },
   ]
 })

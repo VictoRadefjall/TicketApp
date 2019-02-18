@@ -8,7 +8,7 @@
 
     <section class="event">
       <h2> {{ event.name }} </h2>
-      <p>{{ event.date }} {{ event.startTime }} - {{ event.endTime }}</p>
+      <p>{{ event.date.date }} {{ event.date.month }} {{ event.startTime }} - {{ event.endTime }}</p>
       <span> @ {{ event.place }} </span> 
     </section>
 
