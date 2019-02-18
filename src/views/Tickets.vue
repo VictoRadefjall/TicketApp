@@ -11,7 +11,6 @@ import ticket from "@/components/ticket";
 
 export default {
   name: 'tickets',
-
   components: {
     ticket
   }
