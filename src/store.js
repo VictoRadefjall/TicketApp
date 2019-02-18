@@ -9,11 +9,14 @@ export default new Vuex.Store({
     totalCost: 0,
     events:  [
       {
-        name: "Lasse Stefanz",
+        name: "Lasse-Stefanz",
         place: "Kjell Härnqvistsalen",
         adress: "Avenyyyyn 1",
         price: 350,
-        date: "21 mars",
+        date: {
+          date: 21,
+          month: "mars"
+        },
         startTime: "19:00",
         endTime: "21:00",
         code: "ABCDEFG"
@@ -23,7 +26,10 @@ export default new Vuex.Store({
         place: "Din favoritkällare",
         adress: "Avenyyyyn 2",
         price: 110,
-        date: "17 april",
+        date: {
+          date: 17,
+          month: "april"
+        },
         startTime: "22:00",
         endTime: "Tills du tröttnar",
         code: "123456"

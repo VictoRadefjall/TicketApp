@@ -6,9 +6,9 @@
 
     <p class="intro">You are about to score some tickets to</p>    
 
-    <section class="event">
+    <section class="event-info">
       <h2> {{ event.name }} </h2>
-      <p>{{ event.date }} {{ event.startTime }} - {{ event.endTime }}</p>
+      <p>{{ event.date.month }} {{ event.startTime }} - {{ event.endTime }}</p>
       <span> @ {{ event.place }} </span> 
     </section>
 
@@ -21,7 +21,7 @@
 
     <div class="button">
       <router-link :to="{ name: 'tickets', params: { code: event } }"> 
-      <a class="btn">Consume my para $$$</a>
+      <a class="btn">Pay for my ticket(S)</a>
     </router-link>
     </div>
 
@@ -107,11 +107,14 @@ main {
 }
 @import '../scss/main.scss';
 
-.event {
+.event-info {
+  width: 100%;
+  // background: #fff;
   grid-area: event;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 0;
   color: rgba(255, 255, 255, 0.836);  
 }
 
@@ -145,17 +148,17 @@ a {
     align-items: center;
     border: solid 1px rgba(255, 255, 255, 0.842);
     color: rgb(255, 251, 232);
-    height: 3rem;
+    height: 2.5rem;
     border-radius: 3px;
-    width: 100%;
-    max-width: 350px;
-    margin: auto;
-    padding: .5rem;
+    max-width: 20rem;
+    padding: .8rem;
   }
 
   &:hover {
-    background: rgb(253, 255, 126);
-    color: rgba(0, 0, 0, 0.822);
+    color: rgba(255, 229, 83, 0.788);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-decoration: underline;
   }
 
 }
@@ -169,7 +172,7 @@ div {
 .button {
   grid-area: btn;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: center;
 }
 
