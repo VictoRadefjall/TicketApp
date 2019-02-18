@@ -31,11 +31,15 @@ a {
   text-decoration: none;
 }
 
+body {
+  background: $background-color;
+}
+
 .event {
   display: flex;
   flex-direction: row;
   color: White;
-  margin: 2rem;
+  padding: 2rem;
 
   section {
     font-family: Fira Sans;
@@ -104,11 +108,6 @@ a {
       margin: 0 .3rem .3rem 0;
     }
   }
-}
-
-body { // fult kodad css, ta bort sen
-  background-color: MidnightBlue;
-  color: White;
 }
 
 </style>

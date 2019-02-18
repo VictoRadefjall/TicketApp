@@ -1,10 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-<<<<<<< HEAD
 import axios from 'axios'
-=======
-// import axios from 'axios'
->>>>>>> master
 
 Vue.use(Vuex)
 
@@ -29,13 +25,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
-<<<<<<< HEAD
     async getEvents(data) {
         let events = await axios.get('http://localhost:3000/events')
         data.commit('insertEvents', events.data)
     }
-=======
-    // async getEvents
->>>>>>> master
   }
 })
