@@ -11,7 +11,7 @@
 
         
         <div class="events-list">
-            <event v-for="(item, index) in events" :key="index" :item="item" />
+        
         </div>
 
             <div class="add-event">
