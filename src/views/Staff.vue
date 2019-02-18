@@ -4,14 +4,17 @@
   <h3>Where it's @</h3>
   <h1>Staff</h1>
 
+<!--
   <section class="validation">
-    <!-- Infoga meddelande -->
-    <p></p>
+    <p class="valid" v-if="verification.valid">Valid</p>
+    <p class="invalid" v-if="!verification.valid">Not Valid</p>
+    <span> {{ verification.message }} </span>
   </section>
+-->
 
   <section class="verifyForm">
     <input type="text" name="code" placeholder="Enter ticketcode" @input="code = $event.target.value.toUpperCase()" onkeypress="return ((event.charCode > 64 && event.charCode < 90) || (event.charCode > 96 && event.charCode < 123) || event.charCode == 32 || (event.charCode >= 48 && event.charCode <= 57));" @keydown.space="(event) => event.preventDefault()" maxlength="6" />
-    <a href="#" @click="verifyTicket">Verify</a>
+    <a href="#">Verify</a>
   </section>
 </main>
 </template>
@@ -88,7 +91,14 @@ export default {
       font-size: 1.8em;
     }
 
-
+  .valid {
+    color: green;
+    text-transform: uppercase;
+  }
+  .invalid {
+    color: red;
+    text-transform: uppercase;
+  }
 }
 
 

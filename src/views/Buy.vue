@@ -63,7 +63,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans|Libre+Barcode+39+Text|Sansita');
 
 main {
@@ -139,6 +139,8 @@ main {
   }
 
 a {
+  text-decoration: none;
+  
   &.btn {
     display: flex;
     justify-content: center;
@@ -154,8 +156,8 @@ a {
   }
 
   &:hover {
-    background: rgb(253, 255, 126);
     color: rgba(0, 0, 0, 0.822);
+    background: rgb(253, 255, 126);
   }
 
 }
