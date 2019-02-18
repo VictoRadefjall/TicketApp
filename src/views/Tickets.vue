@@ -1,7 +1,7 @@
 <template>
 
 <main>
-  <ticket></ticket> 
+  <ticket></ticket>  <!-- v-for="(item, index) of ticket" :key="index" :ticket="ticket" -->
 </main>
 
 </template>

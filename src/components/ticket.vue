@@ -72,10 +72,12 @@ main {
     background: rgba(17, 17, 27, 0.932);
 }
 
-.ticket-shadow1, .ticket-shadow2 {
-    border-top: 4px solid rgb(236, 127, 127);
-    border-radius: 2.5px;
 
+
+/* TICKET SHADOWS */
+.ticket-shadow1, .ticket-shadow2 {
+    border-top: 5px solid rgb(255, 136, 0);
+    border-radius: 2.5px;
 }
 
 .ticket-shadow2 {
@@ -93,15 +95,16 @@ main {
     background: rgba(252, 249, 249, 0.527);
 }
 
+
+  /* GRID LAYOUT */
+
 .ticket-box {
     max-width: 20rem;
     width: 90%;
     height: auto;
     padding: 5px;
-    /* background-image: linear-gradient( #a3eb6a, #6cca51, #fa6095); */
-    background-image: linear-gradient( #ff67b3, #422d74); 
-    /* background: rgb(241, 163, 46); */
-    border-top: 8px solid rgb(236, 127, 127);
+    background-image: linear-gradient( rgb(241, 163, 46), #D97119);  
+    border-top: 8px solid rgb(255, 136, 0);
     border-radius: 5px;
     margin-bottom: 3.12rem; /* 50px/16px*/
     display: grid;
@@ -133,6 +136,7 @@ main {
 .eventname h2 {
     font-family: 'Sansita', sans-serif;
     letter-spacing: 0.1rem;
+    color: rgb(73, 73, 73);
 }
 .event-where {
     grid-area: event-where;
@@ -161,7 +165,7 @@ main {
 
 p.desc {
     font-family: 'Fira Sans', sans-serif;
-    color: rgb(255, 255, 255);
+    color: #ff7100;
     font-size: 0.8rem;
     text-transform: uppercase;
 }
@@ -182,7 +186,6 @@ p.code {
 .adress {
     font-size: 0.85rem;
 }
-
 
 
 </style>
