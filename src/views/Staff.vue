@@ -47,12 +47,13 @@ export default {
   
   h3 {
     margin-top: 0rem;
+    color: #FF67B3;
   }
 
   .verifyForm {
     @extend %center;
     flex-direction: column;
-    background: orange;
+    background: #FF67B3;
     margin: auto;
     width: 30vw;
     border-radius: 10px;
