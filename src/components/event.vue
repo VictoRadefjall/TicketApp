@@ -33,6 +33,7 @@ a {
 
 .event {
   display: flex;
+  flex-direction: row;
   color: White;
   margin: 2rem;
 
@@ -50,8 +51,8 @@ a {
 
   .date { // datumrutan
     div {
-      width: 80px;
-      height: 80px;
+      width: 90px;
+      height: 90px;
       @extend %center;
       flex-direction: column;
       border: 2px solid White;
@@ -64,6 +65,7 @@ a {
         padding: 0;
       }
       :nth-child(1) {
+        font-size: 1.2rem;
         font-weight: bold;
       }
       :nth-child(2) {
