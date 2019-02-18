@@ -5,6 +5,7 @@ import Buy from './views/Buy.vue'
 import Tickets from './views/Tickets.vue'
 import Events from './views/Events.vue'
 import Staff from './views/Staff.vue'
+import Admin from './views/Admin.vue'
 
 Vue.use(Router)
 
@@ -14,6 +15,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: Admin
     },
     {
       path: '/events',
