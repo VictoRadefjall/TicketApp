@@ -24,6 +24,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../scss/main.scss';
 
 @import url('https://fonts.googleapis.com/css?family=Sansita');
 
