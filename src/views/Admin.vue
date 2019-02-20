@@ -12,12 +12,12 @@
 
         <div class="events-list">
         <div class="headings">
-            <h3>Name</h3> 
-            <h3>Where</h3> 
-            <h3>Number of Seats</h3> 
+            <h3>Name</h3>
+            <h3>Where</h3>
+            <h3>Number of Seats</h3>
             <h3>Sold</h3>
         </div>
-    
+
         </div>
 
             <div class="add-event">
@@ -54,7 +54,7 @@
                             <input type="text" id="lname" name="lastname" placeholder="Number of seats..">
                         </div>
                         </div>
-                        
+
                         <div class="row">
                         <input type="submit" value="Submit">
                         </div>
@@ -83,7 +83,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans|Libre+Barcode+39+Text|Sansita');
 
 .grid-temp{

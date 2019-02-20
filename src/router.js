@@ -6,6 +6,7 @@ import Tickets from './views/Tickets.vue'
 import Events from './views/Events.vue'
 import Staff from './views/Staff.vue'
 import Admin from './views/Admin.vue'
+import AdminLJ from './views/AdminLJ.vue'
 
 Vue.use(Router)
 
@@ -20,6 +21,11 @@ export default new Router({
       path: '/admin',
       name: 'admin',
       component: Admin
+    },
+    {
+      path: '/adminLJ',
+      name: 'adminLJ',
+      component: AdminLJ
     },
     {
       path: '/events',
