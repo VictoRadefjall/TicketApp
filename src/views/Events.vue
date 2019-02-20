@@ -29,7 +29,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Sansita');
 
   #events {
-    background: $background-color;
+    background: inherit;
     display: flex;
     flex-direction: column;
 

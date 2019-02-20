@@ -9,7 +9,8 @@ export default new Vuex.Store({
     event: {},
     tickets: [],
     numOfTickets: 1,
-    events: []
+    events: [],
+    verifyData: null
   },
   mutations: {
     inc(state) {
@@ -26,6 +27,9 @@ export default new Vuex.Store({
     insertTickets(state, tickets) {
       state.tickets = tickets;
     },
+    insertVerifyData(state, data){
+      state.verifyData = data;
+    },
     selectEvent(state, event) {
       state.event = event;
     },
@@ -37,13 +41,18 @@ export default new Vuex.Store({
     },
     getTickets(data) {
         let tickets = localStorage.getItem('tickets');
-        data.commit('insertTickets', JSON.parse(tickets));
+        let parsedTickets = JSON.parse(tickets);
+        data.commit('insertTickets', parsedTickets);
     },
     async buy(ctx, orderData) {
       let tickets = await axios.post('http://localhost:3000/tickets', orderData);
       ctx.commit('insertTickets', tickets.data);
       let storageTicket = JSON.stringify(tickets.data);
       localStorage.setItem('tickets', storageTicket);
+    },
+    async verifyTicket(ctx, code) {
+      let verify = await axios.get(`http://localhost:3000/verify/${code}`);
+      ctx.commit('insertVerifyData', verify.data);
     }
   }
 })

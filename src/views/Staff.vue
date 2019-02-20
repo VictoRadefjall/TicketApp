@@ -6,34 +6,35 @@
 
 <!--
   <section class="validation">
-    <p class="valid" v-if="verification.valid">Valid</p>
-    <p class="invalid" v-if="!verification.valid">Not Valid</p>
-    <span> {{ verification.message }} </span>
-  </section>
--->
+    <p class="valid" v-if="verify">Valid</p>
+    <p class="invalid" v-if="!verify">Not Valid</p>
+    <p> {{ verify }} </p>
+  </section> -->
 
   <section class="verifyForm">
-    <input type="text" name="code" placeholder="Enter ticketcode" @input="code = $event.target.value.toUpperCase()" onkeypress="return ((event.charCode > 64 && event.charCode < 90) || (event.charCode > 96 && event.charCode < 123) || event.charCode == 32 || (event.charCode >= 48 && event.charCode <= 57));" @keydown.space="(event) => event.preventDefault()" maxlength="6" />
-    <a href="#">Verify</a>
+    <input type="text" name="code" :value="code.toUpperCase()" placeholder="Enter ticketcode" @input="code = $event.target.value.toUpperCase()" onkeypress="return ((event.charCode > 64 && event.charCode < 90) || (event.charCode > 96 && event.charCode < 123) || event.charCode == 32 || (event.charCode >= 48 && event.charCode <= 57));" @keydown.space="(event) => event.preventDefault()" maxlength="6" />
+    <a href="#" @click="verifyTicket">Verify</a>
   </section>
 </main>
 </template>
 
 <script>
 export default {
-  name: 'staff',
+  name: 'verify',
   data() {
     return {
       code: ''
     }
   },
-  methods: {
-     /* verifyTicket(){
-        this.$store.dispatch('verifyTicket', this.code);
-      } */
-  },
   computed: {
-    // Lägg till verify
+    verifyData(){
+      return this.$store.state.verifyData;
+    }
+  },
+  methods: {
+    verifyTicket(){
+      this.$store.dispatch('verifyTicket', this.code);
+    }
   }
 }
 </script>
