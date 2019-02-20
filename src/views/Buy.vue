@@ -72,7 +72,6 @@ main {
 }
 
 
-
 // GRID AREAS AND LAYOUT
 .buy {
     max-width: 22rem;

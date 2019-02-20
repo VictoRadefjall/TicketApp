@@ -25,7 +25,6 @@ export default {
 #home {
   color: white;
   margin-top: 5vw;
-  background: gray;
 
   .title {
     color: #FF67B3;

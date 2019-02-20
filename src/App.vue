@@ -8,7 +8,9 @@
       <router-link to="/staff/verify">Verify</router-link> |
       <router-link to="/admin">Admin</router-link>
     </div>
-    <router-view/>
+     <transition name="rotate" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -30,12 +32,12 @@ export default {
   background: $background-color;
 }
 
-
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  background: inherit;
   // color: #2c3e50;
 }
 
@@ -49,4 +51,15 @@ export default {
     }
   }
 }
+
+.rotate-enter-active,
+.rotate-leave-active {
+  transition-duration: 0.2s;
+  transition-property: transform;
+}
+.rotate-enter,
+.rotate-leave-active {
+  transform: rotateY(90deg);
+}
+
 </style>
