@@ -1,6 +1,5 @@
 <template>
 
-
 <main>
 
     <div class="grid-temp">

@@ -4,59 +4,62 @@
         <div class="ticket-shadow2"></div>
         <div class="ticket-shadow1"></div>
 
-            <div class="ticket-box" v-for="event in event" :key="event.id" :item="item">
+        <div class="ticket-box" v-for="ticket in tickets" :key="ticket.id">
 
                 <div class="eventname rounded">
                     <p class="desc">What</p>
-                    <h2> {{ event.name }} </h2>
+                    <h2> {{ ticket.event.name }} </h2>
                 </div>
 
                 <div class="event-where rounded">
                     <p class="desc">Where</p>
-                    <h3> {{ event.place }} </h3>
-                    <p class="adress"> {{ event.adress }}</p>
+                    <h3> {{ ticket.event.place }} </h3>
+                    <p class="adress"> {{ ticket.event.adress }}</p>
                 </div>
 
 
-                    <div class="one">
-                        <p class="desc">when</p>
-                        <p class="info">{{ event.date.month }}</p>
-                    </div>
-
-                    <div class="two">
-                        <p class="desc">from</p>
-                        <p class="info">{{ event.startTime }}</p>
-                    </div>
-
-                    <div class="three">
-                        <p class="desc">to</p>
-                        <p class="info">{{ event.endTime }}</p>
-                    </div>
-
-
-                <div class="event-place rounded">
-                    <p class="desc">Info</p>
-                     <p class="adress">Ståplats, ingen reservation, ta med öronproppar</p>
+                <div class="one">
+                    <p class="desc">when</p>
+                    <p class="info">{{ ticket.event.date.date }} {{ ticket.event.date.month }}</p>
                 </div>
-                <div class="barcode rounded">
-                    <p class="code"> {{ event.code }} </p>
+
+                <div class="two">
+                    <p class="desc">from</p>
+                    <p class="info">{{ ticket.event.startTime }}</p>
                 </div>
+
+                <div class="three">
+                    <p class="desc">to</p>
+                    <p class="info">{{ ticket.event.endTime }}</p>
+                </div>
+
+
+            <div class="event-place rounded">
+                <p class="desc">Info</p>
+                    <p class="adress"> {{ ticket.event.info }} </p>
             </div>
+            <div class="barcode rounded">
+               <p class="code"> {{ ticket.code }} </p> 
+            </div>
+      
+        </div>
     </main>
 </template>
 
 <script>
 export default {
     name:'ticket',
-    props: ['ticket', 'item'],
     computed: {
-    event() {
-      var name = this.$route.params.name;
-      return this.$store.state.events.filter(function(event) {
-        return event.name == name
-      })
-    },
-  },
+        event() {
+            var name = this.$route.params.name;
+            return this.$store.state.events.filter(function(event) {
+                return event.name == name
+            })
+        },
+        tickets() {
+            return this.$store.state.tickets;
+        }
+    },   
 }
 </script>
 

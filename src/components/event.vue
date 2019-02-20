@@ -1,12 +1,13 @@
 <template>
 <router-link :to="{ name:'name', params: { name: item.name } }">
-  <article class="event">
+  <article class="event" @click="selectEvent(item)">
     <section class="date">
       <div>
         <p>{{ item.date.date }}</p>
         <p>{{ item.date.month }}</p>
       </div>
     </section>
+
     <section class="info">
       <h1>{{ item.name }}</h1>
       <p>{{ item.place }}</p>
@@ -20,11 +21,16 @@
 <script>
 export default {
   name: 'event',
-  props: ['item']
+  props: ['item'],
+  methods: {
+    selectEvent(event){
+      this.$store.commit('selectEvent', event);
+    }
+  },
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../scss/main.scss';
 
 a {
@@ -36,6 +42,7 @@ a {
   flex-direction: row;
   color: White;
   margin: 2rem;
+  border-left: 5px solid white;
 
   section {
     font-family: Fira Sans;
@@ -50,6 +57,7 @@ a {
   }
 
   .date { // datumrutan
+
     div {
       width: 80px;
       height: 80px;
@@ -77,7 +85,7 @@ a {
   .info { // informationsrutan
     flex: 3;
     align-items: baseline;
-    border-bottom: .5px solid #eee;
+    border-bottom: 2px solid white;
 
     h1, p {
       margin: 0;
@@ -104,6 +112,10 @@ a {
       margin: 0 .3rem .3rem 0;
     }
   }
+}
+
+.event:hover {
+  border-left: 5px solid hotpink;
 }
 
 body { // fult kodad css, ta bort sen

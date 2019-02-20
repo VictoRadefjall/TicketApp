@@ -13,16 +13,16 @@
     </section>
 
     <section class="rectangle">
-      <div id="price" class="item"> {{ totalCost }} SEK </div>
+      <div id="price" class="item"> {{ event.price * numOfTickets }} SEK </div>
       <div class="item calc" @click="dec">–</div>
-      <div class="item"> {{ tickets }} </div>
+      <div class="item"> {{ numOfTickets }} </div>
       <div class="item calc" @click="inc">+</div>
     </section>
 
     <div class="button">
       <router-link :to="{ name: 'tickets', params: { code: event } }">
-      <a class="btn">Pay for my ticket(S)</a>
-    </router-link>
+        <a class="btn" @click="buyTickets">Pay for my ticket(S)</a>
+      </router-link>
     </div>
 
     </section>
@@ -39,19 +39,16 @@ export default {
     tickets() {
       return this.$store.state.tickets;
     },
-    events() {
-      return this.$store.state.events;
+    numOfTickets() {
+      return this.$store.state.numOfTickets;
     },
     event() {
       var name = this.$route.params.name;
-      return this.$store.state.events.filter(function(event) {
-        return event.name == name
+      return this.$store.state.events.filter(function(item) {
+        return item.name == name
       })
     },
-    totalCost() {
-      return this.event[0].price * this.$store.state.tickets;
-    },
-  },
+  }, 
   methods: {
     inc() {
       this.$store.commit('inc');
@@ -59,18 +56,20 @@ export default {
     dec() {
       this.$store.commit('dec');
     },
-  }
+    buyTickets() {
+      this.$store.dispatch('buy', {event: this.event[0]._id, numOfTickets: this.numOfTickets })
+    },
+  },
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans|Libre+Barcode+39+Text|Sansita');
 
 main {
   background: rgba(17, 17, 27, 0.932);
   padding: 20px;
 }
-
 
 
 // GRID AREAS AND LAYOUT
@@ -142,6 +141,8 @@ main {
   }
 
 a {
+  text-decoration: none;
+  
   &.btn {
     display: flex;
     justify-content: center;

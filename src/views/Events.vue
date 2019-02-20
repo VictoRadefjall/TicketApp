@@ -29,7 +29,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Sansita');
 
   #events {
-    background: $background-color;
+    background: inherit;
     display: flex;
     flex-direction: column;
 
@@ -43,7 +43,7 @@ export default {
     input {
       flex: 1;
       background-color: rgba(192,192,192,0.5);
-      color: Silver;
+      color: silver;
       font-size: 1rem;
       font-style: italic;
       border: none;
@@ -52,9 +52,5 @@ export default {
       padding: 1rem;
     }
   }
-
-#events {
-  background: $background-color;
-}
 
 </style>

@@ -13,6 +13,11 @@ export default {
   name: 'tickets',
   components: {
     ticket
+  },
+  beforeMount() {
+    if(localStorage.getItem('tickets')) {
+      this.$store.dispatch('getTickets');
+    }
   }
 };
 

@@ -4,13 +4,15 @@
   <h3>Where it's @</h3>
   <h1>Staff</h1>
 
+<!--
   <section class="validation">
-    <!-- Infoga meddelande -->
-    <p></p>
-  </section>
+    <p class="valid" v-if="verify">Valid</p>
+    <p class="invalid" v-if="!verify">Not Valid</p>
+    <p> {{ verify }} </p>
+  </section> -->
 
   <section class="verifyForm">
-    <input type="text" name="code" placeholder="Enter ticketcode" @input="code = $event.target.value.toUpperCase()" onkeypress="return ((event.charCode > 64 && event.charCode < 90) || (event.charCode > 96 && event.charCode < 123) || event.charCode == 32 || (event.charCode >= 48 && event.charCode <= 57));" @keydown.space="(event) => event.preventDefault()" maxlength="6" />
+    <input type="text" name="code" :value="code.toUpperCase()" placeholder="Enter ticketcode" @input="code = $event.target.value.toUpperCase()" onkeypress="return ((event.charCode > 64 && event.charCode < 90) || (event.charCode > 96 && event.charCode < 123) || event.charCode == 32 || (event.charCode >= 48 && event.charCode <= 57));" @keydown.space="(event) => event.preventDefault()" maxlength="6" />
     <a href="#" @click="verifyTicket">Verify</a>
   </section>
 </main>
@@ -18,19 +20,21 @@
 
 <script>
 export default {
-  name: 'staff',
+  name: 'verify',
   data() {
     return {
       code: ''
     }
   },
-  methods: {
-     /* verifyTicket(){
-        this.$store.dispatch('verifyTicket', this.code);
-      } */
-  },
   computed: {
-    // Lägg till verify
+    verifyData(){
+      return this.$store.state.verifyData;
+    }
+  },
+  methods: {
+    verifyTicket(){
+      this.$store.dispatch('verifyTicket', this.code);
+    }
   }
 }
 </script>
@@ -55,7 +59,8 @@ export default {
     flex-direction: column;
     background: #FF67B3;
     margin: auto;
-    width: 30vw;
+    width: 75vw;
+    max-width: 500px;
     border-radius: 10px;
 
       input[type="text"] {
@@ -67,7 +72,7 @@ export default {
         border: none;
         color: white;
         font-size: 1.5em;
-        caret-color: orange;
+        caret-color: HotPink;
       }
       a {
         text-decoration: none;
@@ -87,7 +92,14 @@ export default {
       font-size: 1.8em;
     }
 
-
+  .valid {
+    color: green;
+    text-transform: uppercase;
+  }
+  .invalid {
+    color: red;
+    text-transform: uppercase;
+  }
 }
 
 
