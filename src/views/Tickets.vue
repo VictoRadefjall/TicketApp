@@ -11,18 +11,14 @@ import ticket from "@/components/ticket";
 
 export default {
   name: 'tickets',
-  props: ['item'],
   components: {
     ticket
   },
-  computed: {
-    event() {
-        var name = this.$route.params.name;
-        return this.$store.state.events.filter(function(event) {
-            return event.name == name
-        })
-    },
-  },
+  beforeMount() {
+    if(localStorage.getItem('tickets')) {
+      this.$store.dispatch('getTickets');
+    }
+  }
 };
 
 </script>
