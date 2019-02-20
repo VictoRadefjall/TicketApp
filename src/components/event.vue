@@ -1,6 +1,6 @@
 <template>
 <router-link :to="{ name:'name', params: { name: item.name } }">
-  <article class="event">
+  <article class="event" @click="selectEvent(item)">
     <section class="date">
       <div>
         <p>{{ item.date.date }}</p>
@@ -21,7 +21,12 @@
 <script>
 export default {
   name: 'event',
-  props: ['item']
+  props: ['item'],
+  methods: {
+    selectEvent(event){
+      this.$store.commit('selectEvent', event);
+    }
+  },
 }
 </script>
 

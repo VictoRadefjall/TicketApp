@@ -20,7 +20,7 @@
 
                     <div class="one">
                         <p class="desc">when</p>
-                        <p class="info">{{ event.date.month }}</p>
+                        <p class="info">{{ event.date.date }} {{ event.date.month }}</p>
                     </div>
 
                     <div class="two">
@@ -50,12 +50,12 @@ export default {
     name:'ticket',
     props: ['ticket', 'item'],
     computed: {
-    event() {
-      var name = this.$route.params.name;
-      return this.$store.state.events.filter(function(event) {
-        return event.name == name
-      })
-    },
+        event() {
+            var name = this.$route.params.name;
+            return this.$store.state.events.filter(function(event) {
+                return event.name == name
+            })
+        },
   },
 }
 </script>
