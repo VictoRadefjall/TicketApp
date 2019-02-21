@@ -6,32 +6,32 @@
 
         <div class="ticket-box" v-for="ticket in tickets" :key="ticket.id">
 
-                <div class="eventname rounded">
-                    <p class="desc">What</p>
-                    <h2> {{ ticket.event.name }} </h2>
-                </div>
+            <div class="eventname rounded">
+                <p class="desc">What</p>
+                <h2> {{ ticket.event.name }} </h2>
+            </div>
 
-                <div class="event-where rounded">
-                    <p class="desc">Where</p>
-                    <h3> {{ ticket.event.place }} </h3>
-                    <p class="adress"> {{ ticket.event.adress }}</p>
-                </div>
+            <div class="event-where rounded">
+                <p class="desc">Where</p>
+                <h3> {{ ticket.event.place }} </h3>
+                <p class="adress"> {{ ticket.event.adress }}</p>
+            </div>
 
 
-                <div class="one">
-                    <p class="desc">when</p>
-                    <p class="info">{{ ticket.event.date.date }} {{ ticket.event.date.month }}</p>
-                </div>
+            <div class="one">
+                <p class="desc">when</p>
+                <p class="info">{{ ticket.event.date.date }} {{ ticket.event.date.month }}</p>
+            </div>
 
-                <div class="two">
-                    <p class="desc">from</p>
-                    <p class="info">{{ ticket.event.startTime }}</p>
-                </div>
+            <div class="two">
+                <p class="desc">from</p>
+                <p class="info">{{ ticket.event.startTime }}</p>
+            </div>
 
-                <div class="three">
-                    <p class="desc">to</p>
-                    <p class="info">{{ ticket.event.endTime }}</p>
-                </div>
+            <div class="three">
+                <p class="desc">to</p>
+                <p class="info">{{ ticket.event.endTime }}</p>
+            </div>
 
 
             <div class="event-place rounded">
@@ -39,7 +39,7 @@
                     <p class="adress"> {{ ticket.event.info }} </p>
             </div>
             <div class="barcode rounded">
-               <p class="code"> {{ ticket.code }} </p> 
+                <p class="code"> {{ ticket.code }} </p> 
             </div>
       
         </div>
@@ -75,7 +75,6 @@ main {
     /* background: rgba(17, 17, 27, 0.932); */
     /* background: rgb(184, 184, 184); */
 }
-
 
 
 /* TICKET SHADOWS */
