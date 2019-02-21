@@ -1,8 +1,8 @@
 <template>
   <main id="events">
     <h1>Events</h1>
-    <input type="text" name="" value="Search for events">
-    <event v-for="(item, index) in events" :key="index" :item="item" />
+    <input type="text" v-model="search" placeholder="Search events">
+    <event v-for="(item, index) in filterEvents" :key="index" :item="item" />
   </main>
 </template>
 
@@ -11,12 +11,22 @@ import event from '@/components/event';
 
 export default {
   name: 'events',
+  data() {
+    return {
+      search: ""
+    }
+  },
   components: {
     event
   },
   computed: {
     events() {
       return this.$store.state.events;
+    },
+    filterEvents() {
+      return this.$store.state.events.filter((event) => {
+        return event.name.toUpperCase().match(this.search.toUpperCase());
+      })
     }
   }
 }
@@ -38,7 +48,7 @@ export default {
       color: HotPink;
       font-size: 3rem;
     }
-    
+
     input {
       flex: 1;
       background-color: rgba(192,192,192,0.5);
