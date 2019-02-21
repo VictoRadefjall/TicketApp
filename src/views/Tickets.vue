@@ -1,5 +1,5 @@
 <template>
-<main>
+<main id="ticket">
   <ticket></ticket>
 </main>
 </template>
@@ -24,7 +24,7 @@ export default {
 <style lang="scss">
 @import '../scss/main.scss';
 
-main {
+#ticket {
   background: $background-color;
   color: white;
 }

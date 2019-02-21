@@ -7,7 +7,6 @@
       <router-link to="/tickets">Tickets</router-link> |
       <router-link to="/staff/verify">Verify</router-link> |
       <router-link to="/admin">Admin</router-link> |
-      <router-link to="/adminLJ">AdminLJ</router-link>
     </div>
      <transition name="rotate" mode="out-in">
       <router-view></router-view>

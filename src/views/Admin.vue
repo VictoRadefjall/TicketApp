@@ -1,209 +1,214 @@
 <template>
-
-<main>
-
-    <div class="grid-temp">
-
-        <div class="logo">
-            <img src="../assets/logo.png" alt="Where It's atlogo" style="width: 50px;height: 50px;" />
+  <main id="admin">
+    <h1>Admin</h1>
+    <section class="container">
+      <table cellspacing="0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Where</th>
+            <th>Total tickets</th>
+            <th>Tickets left</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="event in events" :key="event._id">
+            <td>{{ event.name }}</td>
+            <td>{{ event.place }}</td>
+            <td>{{ event.tickets.spots }}</td>
+            <td>{{ event.tickets.spots - event.tickets.sold }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <aside class="form">
+        <h2>Add event</h2>
+        <input type="text" placeholder="Name" class="name" v-model="newEvent.name">
+        <input type="text" placeholder="Location" class="location" v-model="newEvent.place">
+        <input type="text" placeholder="Adress" class="adress" v-model="newEvent.adress">
+        <input type="number" placeholder="Price" class="price" v-model="newEvent.price">
+        <input type="text" placeholder="Date" class="date" v-model="newEvent.date.date">
+        <input type="text" placeholder="Month" class="month" v-model="newEvent.date.month">
+        <input type="text" placeholder="Starttime" class="starttime" v-model="newEvent.startTime">
+        <input type="text" placeholder="Endtime" class="endtime" v-model="newEvent.endTime">
+        <input type="number" placeholder="Number of tickets" class="spots" v-model="newEvent.spots">
+        <div>
+          <a href="#" class="btn" @click="createEvent()">Add event</a>
         </div>
-
-
-        <div class="events-list">
-        <div class="headings">
-            <h3>Name</h3>
-            <h3>Where</h3>
-            <h3>Number of Seats</h3>
-            <h3>Sold</h3>
-
-        </div>
-
-        <div v-for="event in events" :key="event.id">
-          <p>{{ event.name }}</p>
-          <p>{{ event.place}}</p>
-          <p> {{ event.tickets.spots }} </p>
-          <p> {{ event.tickets.sold }} </p>
-          <br>
-        </div>
-
-        </div>
-
-            <div class="add-event">
-                <h2>Add Event</h2>
-                <div class="container">
-                    <form action="/action_page.php">
-                        <div class="row">
-                        <div class="col-75">
-                            <input type="text" id="fname" name="firstname" placeholder="Event name..">
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="col-75">
-                            <input type="text" id="lname" name="lastname" placeholder="Where is it..">
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="col-75">
-                            <input type="text" id="lname" name="lastname" placeholder="When is it..">
-                        </div>
-                        </div>
-                            <div class="row">
-                        <div class="col-75">
-                            <input type="text" id="lname" name="lastname" placeholder="Start time..">
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="col-75">
-                            <input type="text" id="lname" name="lastname" placeholder="End time..">
-                        </div>
-                        </div>
-                        <div class="row">
-                        <div class="col-75">
-                            <input type="text" id="lname" name="lastname" placeholder="Number of seats..">
-                        </div>
-                        </div>
-
-                        <div class="row">
-                        <input type="submit" value="Submit">
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-    </div>
-</main>
-
-
+      </aside>
+    </section>
+  </main>
 </template>
 
 <script>
-
 export default {
-    name: 'admin',
-    computed: {
-    events() {
-      return this.$store.state.events;
-    },
-    tickets() {
-      return this.$store.state.tickets;
+  name: 'AdminLJ',
+  data() {
+    return {
+      newEvent: {
+        name: "",
+        place: "",
+        adress: "",
+        price: Number,
+        date: {
+          date: "",
+          month: "",
+        },
+        startTime: "",
+        endTime: "",
+        spots: Number
+      }
     }
+  },
+  computed: {
+    events() {
+      return this.$store.state.events
+    }
+  },
+  methods: {
+    async createEvent() {
+      this.$store.dispatch('createEvent', this.newEvent);
+
+      this.$store.dispatch('getEvents')
+    }
+  },
+  beforeMount() {
+    this.$store.dispatch('getEvents');
   }
-
 }
-
 </script>
 
-<style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Libre+Barcode+39+Text|Sansita');
+<style lang="scss">
 
-.grid-temp{
-    width: 100%;
+@import '../scss/main.scss';
+
+#admin {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 2rem;
+  color: White;
+
+  .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 75px 500px;
-    grid-template-areas:
-    "logo logo"
-    "left right"
-    ;
-}
+    grid-template-columns: 3fr 1fr;
 
-.logo {
-    grid-area: logo;
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-}
+    table {
+      background: Black;
+      box-sizing: border-box;
+      padding: 1rem;
+      margin: 1rem;
 
-.events-list{
-    grid-area: left;
-    color: rgb(255, 71, 246);
-    width: 100%;
-    height: auto;
-    background: rgba(117, 117, 212, 0.301);
-}
+      thead {
+         tr {
+           th {
+             color: HotPink;
+             text-align: left;
+             padding: 1rem;
+           }
+         }
+      }
 
-.headings {
-    display: flex;
-    justify-content: flex-start;
-    border-bottom: solid 2px grey;
+      tbody {
+        tr {
+          padding: 1rem;
 
-        h3{
-        font-size: 1rem;
-        margin-right: 2rem;
+          td {
+            color: rgba($color: White, $alpha: .8);
+            text-align: left;
+            padding: 1rem;
+          }
+
+          &:nth-child(2n) {
+            background: rgba($color: White, $alpha: 0.1)
+          }
+        }
+      }
+    }
+
+    aside {
+      background: Black;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 4rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 2rem;
+      grid-template-areas:
+      "title title"
+      "name name"
+      "location adress"
+      "price price"
+      "date month"
+      "starttime endtime"
+      "spots spots"
+      "btn ."
+      ;
+      grid-gap: .5rem;
+      box-sizing: border-box;
+      padding: 1rem;
+      margin: 1rem;
+
+      h2 {
+        color: HotPink;
+        grid-area: title;
+        text-align: left;
+        margin-left: .5rem;
+      }
+
+      input {
+        width: 100%;
+        background: none;
+        color: White;
+        border: 1px solid White;
+        border-radius: 3px;
+        font-size: 1.2rem;
+        padding: .5rem;
+        margin-right: .25rem;
+        box-sizing: border-box;
+
+        &.name {grid-area: name;}
+        &.location {grid-area: location;}
+        &.adress {grid-area: adress;}
+        &.price {grid-area: price;}
+        &.date {grid-area: date;}
+        &.month {grid-area: month;}
+        &.starttime {grid-area: starttime;}
+        &.endtime {grid-area: endtime;}
+        &.spots {grid-area: spots;}
+      }
+
+      div {
+        @extend %center;
+        background: Hotpink;
+        grid-area: btn;
+        padding: 0;
+        margin: .5rem .5rem 0 0;
+        align-items: center;
+
+        a {
+          text-decoration: none;
+          color: White;
+          text-transform: uppercase;
+        }
+      }
 
     }
-}
+  }
 
-.add-event{
-    grid-area: right;
-    color: white;
-    width: 75%;
-    border: solid white 2px;
-}
+  @media screen and (max-width: 480px) {
 
-//FORM STYLING
+    .container {
+      grid-template-columns: 1fr;
+      width: 100%;
 
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
+      table {
+        margin: 0;
+      }
 
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-}
-
-input[type=submit] {
-  background-color: #4CAF50;
-  color: none;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 1rem;
-  float: left;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-.container {
-  border-radius: 5px;
-  background-color: none;
-  padding: 20px;
-}
-
-.col-25 {
-  float: left;
-  width: 20%;
-  margin-top: 6px;
-}
-
-.col-75 {
-  float: left;
-  width: 60%;
-  margin-top: 6px;
-}
-
-/* Clear floats after the columns  for submit button */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive layout - Shrinks iput fields */
-@media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
-    width: 75%;
-    margin-top: 0;
+      aside {
+        margin: 1rem 0 0 0;
+      }
+    }
   }
 }
+
+
 
 </style>
