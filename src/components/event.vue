@@ -35,6 +35,7 @@ export default {
 
 a {
   text-decoration: none;
+  background: none;
 }
 
 body {
@@ -119,7 +120,10 @@ body {
 }
 
 .event:hover {
-  border-left: 5px solid hotpink;
+  border-left: 5px solid #ff7100;
+  background: linear-gradient(#78f70273, rgba(0, 128, 0, 0));
+  border-top-right-radius: 30px;
+
 }
 
 </style>

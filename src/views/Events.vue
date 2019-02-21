@@ -1,7 +1,7 @@
 <template>
   <main id="events">
     <h1>Events</h1>
-    <input type="text" name="" value="Search for events">
+    <input type="text" name="" placeholder="Search for events">
     <event v-for="(item, index) in events" :key="index" :item="item" />
   </main>
 </template>
@@ -35,7 +35,7 @@ export default {
       font-family: Sansita;
       font-weight: bold;
       font-style: italic;
-      color: HotPink;
+      color: #ff7100;
       font-size: 3rem;
     }
     
