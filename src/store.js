@@ -14,7 +14,9 @@ export default new Vuex.Store({
   },
   mutations: {
     inc(state) {
-      return state.numOfTickets++;
+      if (state.numOfTickets < 10) {
+        return state.numOfTickets++;
+      }
     },
     dec(state) {
       if (state.numOfTickets > 1) {

@@ -21,7 +21,7 @@
 
     <div class="button">
       <router-link :to="{ name: 'tickets', params: { code: event } }">
-        <a class="btn" @click="buyTickets">Pay for my ticket(S)</a>
+        <a class="btn" @click="buyTickets">Pay for my ticket(s)</a>
       </router-link>
     </div>
 
@@ -63,7 +63,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans|Libre+Barcode+39+Text|Sansita');
 
 main {
@@ -156,10 +156,9 @@ a {
   }
 
   &:hover {
-    color: rgba(255, 229, 83, 0.788);
+    background: rgb(36, 36, 36);
     // font-size: 1.2rem;
-    text-transform: uppercase;
-    text-decoration: underline;
+    text-decoration:none;
   }
 
 }
