@@ -25,14 +25,15 @@
         <input type="text" placeholder="Name" class="name" v-model="newEvent.name">
         <input type="text" placeholder="Location" class="location" v-model="newEvent.place">
         <input type="text" placeholder="Adress" class="adress" v-model="newEvent.adress">
+        <input type="text" placeholder="Info" class="info" v-model="newEvent.info">
         <input type="number" placeholder="Price" class="price" v-model="newEvent.price">
         <input type="text" placeholder="Date" class="date" v-model="newEvent.date.date">
         <input type="text" placeholder="Month" class="month" v-model="newEvent.date.month">
-        <input type="text" placeholder="Starttime" class="starttime" v-model="newEvent.startTime">
-        <input type="text" placeholder="Endtime" class="endtime" v-model="newEvent.endTime">
-        <input type="number" placeholder="Number of tickets" class="spots" v-model="newEvent.spots">
-        <div>
-          <a href="#" class="btn" @click="createEvent()">Add event</a>
+        <input type="text" placeholder="Start time" class="starttime" v-model="newEvent.startTime">
+        <input type="text" placeholder="End time" class="endtime" v-model="newEvent.endTime">
+        <input type="number" placeholder="Number of tickets" class="spots" v-model="newEvent.tickets.spots">
+        <div class="btn">
+          <a href="#" @click="createEvent()">Add event</a>
         </div>
       </aside>
     </section>
@@ -48,6 +49,7 @@ export default {
         name: "",
         place: "",
         adress: "",
+        info: "",
         price: Number,
         date: {
           date: "",
@@ -55,7 +57,10 @@ export default {
         },
         startTime: "",
         endTime: "",
-        spots: Number
+        tickets: {
+          spots: Number,
+          sold: 0
+        }
       }
     }
   },
@@ -85,7 +90,7 @@ export default {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin: 0 2rem;
+  background: none;
   color: White;
 
   .container {
@@ -129,11 +134,12 @@ export default {
       background: Black;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 4rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 2rem;
+      grid-template-rows: 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 2rem;
       grid-template-areas:
       "title title"
       "name name"
       "location adress"
+      "info info"
       "price price"
       "date month"
       "starttime endtime"
@@ -149,7 +155,7 @@ export default {
         color: HotPink;
         grid-area: title;
         text-align: left;
-        margin-left: .5rem;
+        margin: 0 0 0 .5rem;
       }
 
       input {
@@ -166,6 +172,7 @@ export default {
         &.name {grid-area: name;}
         &.location {grid-area: location;}
         &.adress {grid-area: adress;}
+        &.info {grid-area: info;}
         &.price {grid-area: price;}
         &.date {grid-area: date;}
         &.month {grid-area: month;}
