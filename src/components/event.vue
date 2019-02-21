@@ -119,7 +119,7 @@ body {
 }
 
 .event:hover {
-  border-left: hotpink;
+  border-left: 5px solid hotpink;
 }
 
 </style>
