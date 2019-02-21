@@ -1,6 +1,5 @@
 <template>
 
-
 <main>
 
     <div class="grid-temp">
@@ -16,6 +15,15 @@
             <h3>Where</h3>
             <h3>Number of Seats</h3>
             <h3>Sold</h3>
+
+        </div>
+
+        <div v-for="event in events" :key="event.id">
+          <p>{{ event.name }}</p>
+          <p>{{ event.place}}</p>
+          <p> {{ event.tickets.spots }} </p>
+          <p> {{ event.tickets.sold }} </p>
+          <br>
         </div>
 
         </div>
@@ -72,10 +80,12 @@
 
 export default {
     name: 'admin',
-
     computed: {
     events() {
       return this.$store.state.events;
+    },
+    tickets() {
+      return this.$store.state.tickets;
     }
   }
 

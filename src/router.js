@@ -43,8 +43,8 @@ export default new Router({
       component: Tickets
     },
     {
-      path: '/staff/verify',
-      name: 'staff',
+      path: '/verify',
+      name: 'verify',
       component: Staff
     },
     {
