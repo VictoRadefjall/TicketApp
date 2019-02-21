@@ -21,8 +21,8 @@
         <div v-for="event in events" :key="event.id">
           <p>{{ event.name }}</p>
           <p>{{ event.place}}</p>
-          <p> {{ event.tickets.spots }} </p>
-          <p> {{ event.tickets.sold }} </p>
+          <p>{{ event.tickets.spots }}</p>
+          <p>{{ event.tickets.sold }}</p>
           <br>
         </div>
          

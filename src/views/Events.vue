@@ -1,13 +1,12 @@
 <template>
-<main id="events">
-  <h1>Events</h1>
-  <input type="text" name="" value="Search for events">
-  <event v-for="(item, index) in events" :key="index" :item="item" />
-</main>
+  <main id="events">
+    <h1>Events</h1>
+    <input type="text" name="" value="Search for events">
+    <event v-for="(item, index) in events" :key="index" :item="item" />
+  </main>
 </template>
 
 <script>
-
 import event from '@/components/event';
 
 export default {
@@ -25,7 +24,6 @@ export default {
 
 <style lang="scss" scoped>
 @import '../scss/main.scss';
-
 @import url('https://fonts.googleapis.com/css?family=Sansita');
 
   #events {
@@ -40,6 +38,7 @@ export default {
       color: HotPink;
       font-size: 3rem;
     }
+    
     input {
       flex: 1;
       background-color: rgba(192,192,192,0.5);

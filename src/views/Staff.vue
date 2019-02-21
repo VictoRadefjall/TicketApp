@@ -4,12 +4,10 @@
   <h3>Where it's @</h3>
   <h1>Staff</h1>
 
-<!--
-  <section class="validation">
-    <p class="valid" v-if="verify">Valid</p>
-    <p class="invalid" v-if="!verify">Not Valid</p>
-    <p> {{ verify }} </p>
-  </section> -->
+  <section class="validation" v-if="verifyData">
+    <p v-if="verifyData.verified" class="valid"> {{ verifyData.message }} </p>
+    <p v-if="!verifyData.verified" class="invalid"> {{ verifyData.message }} </p>
+  </section> 
 
   <section class="verifyForm">
     <input type="text" name="code" :value="code.toUpperCase()" placeholder="Enter ticketcode" @input="code = $event.target.value.toUpperCase()" onkeypress="return ((event.charCode > 64 && event.charCode < 90) || (event.charCode > 96 && event.charCode < 123) || event.charCode == 32 || (event.charCode >= 48 && event.charCode <= 57));" @keydown.space="(event) => event.preventDefault()" maxlength="6" />
@@ -44,6 +42,7 @@ export default {
 
 #staff {
   margin-top: 3vw;
+  background: inherit;
 
   h1 {
     text-transform: uppercase;
@@ -67,9 +66,10 @@ export default {
         background: black;
         text-align: center;
         text-transform: uppercase;
-        width: 99.5%;
         height: 10vh;
         border: none;
+        width: 80vw;
+        max-width: 500px;
         color: white;
         font-size: 1.5em;
         caret-color: HotPink;
@@ -82,7 +82,8 @@ export default {
         background: none;
         font-size: 1.2em;
         display: block;
-        width: inherit;
+        width: 80vw;
+        max-width: 500px;
         transition: 0.5s;
       }
     }
@@ -94,11 +95,9 @@ export default {
 
   .valid {
     color: green;
-    text-transform: uppercase;
   }
   .invalid {
     color: red;
-    text-transform: uppercase;
   }
 }
 
