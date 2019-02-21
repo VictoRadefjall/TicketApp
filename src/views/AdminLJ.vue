@@ -15,22 +15,23 @@
           <tr v-for="event in events" :key="event._id">
             <td>{{ event.name }}</td>
             <td>{{ event.place }}</td>
-            <td></td>
+            <td>{{ event.spots }}</td>
             <td></td>
           </tr>
         </tbody>
       </table>
       <aside class="form">
-        <input type="text" placeholder="Name" v-model="name">
-        <input type="text" placeholder="Location" v-model="place">
-        <input type="text" placeholder="Adress" v-model="adress">
-        <input type="text" placeholder="Price" v-model="price">
-        <input type="text" placeholder="Date" v-model="date.date">
-        <input type="text" placeholder="Month" v-model="date.month">
-        <input type="text" placeholder="Starttime" v-model="startTime">
-        <input type="text" placeholder="Endtime" v-model="endTime">
-        <input type="number" placeholder="Number of tickets">
-        <a href="#" class="btn" @click="createEvent()"></a>
+        <h2>Add event</h2>
+        <input type="text" placeholder="Name" class="name" v-model="newEvent.name">
+        <input type="text" placeholder="Location" class="location" v-model="newEvent.place">
+        <input type="text" placeholder="Adress" class="adress" v-model="newEvent.adress">
+        <input type="number" placeholder="Price" class="price" v-model="newEvent.price">
+        <input type="text" placeholder="Date" class="date" v-model="newEvent.date.date">
+        <input type="text" placeholder="Month" class="month" v-model="newEvent.date.month">
+        <input type="text" placeholder="Starttime" class="starttime" v-model="newEvent.startTime">
+        <input type="text" placeholder="Endtime" class="endtime" v-model="newEvent.endTime">
+        <input type="number" placeholder="Number of tickets" class="spots" v-model="newEvent.spots">
+        <a href="#" class="btn" @click="createEvent()">Add event</a>
       </aside>
     </section>
   </main>
@@ -41,17 +42,19 @@ export default {
   name: 'AdminLJ',
   data() {
     return {
-      name: "",
-      place: "",
-      adress: "",
-      price: 0,
-      date: {
-        date: "",
-        month: "",
-      },
-      startTime: "",
-      endTime: "",
-      spots: Number // byt namn? total tickets?
+      newEvent: {
+        name: "",
+        place: "",
+        adress: "",
+        price: Number,
+        date: {
+          date: "",
+          month: "",
+        },
+        startTime: "",
+        endTime: "",
+        spots: Number
+      }
     }
   },
   computed: {
@@ -61,8 +64,7 @@ export default {
   },
   methods: {
     async createEvent() {
-      let resp = await this.$http.post('http://localhost:3000/events', this.data);
-      console.log(resp)
+      this.$store.dispatch('createEvent', this.newEvent);
 
       this.$store.dispatch('getEvents')
     }
@@ -78,22 +80,24 @@ export default {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin: 0 2rem;
 
   .container {
     display: grid;
-    grid-template-columns: 4fr 1fr;
-    max-width: 1000px;
-    width: 100%;
+    grid-template-columns: 3fr 1fr;
 
     table {
-      background: rgba($color: White, $alpha: .5);
+      background: Black;
+      box-sizing: border-box;
       padding: 1rem;
+      margin: 1rem;
 
       thead {
          tr {
            th {
              color: HotPink;
              text-align: left;
+             padding: 1rem;
            }
          }
       }
@@ -105,6 +109,7 @@ export default {
           td {
             color: rgba($color: White, $alpha: .8);
             text-align: left;
+            padding: 1rem;
           }
 
           &:nth-child(2n) {
@@ -114,18 +119,63 @@ export default {
       }
     }
 
-    .form {
-      background: rgba($color: White, $alpha: .5);
+    aside {
+      background: Black;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 4rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 2rem;
+      grid-template-areas:
+      "title title"
+      "name name"
+      "location adress"
+      "price price"
+      "date month"
+      "starttime endtime"
+      "spots spots"
+      "btn ."
+      ;
+      grid-gap: .5rem;
+      box-sizing: border-box;
+      padding: 1rem;
+      margin: 1rem;
+
+      h2 {
+        color: HotPink;
+        grid-area: title;
+        text-align: left;
+        margin-left: .5rem;
+      }
 
       input {
         width: 100%;
         background: none;
-        border: 1px solid HotPink;
-        border-radius: 3px;
-        padding: .5rem;
-        font-size: 1.2rem;
         color: White;
+        border: 1px solid White;
+        border-radius: 3px;
+        font-size: 1.2rem;
+        padding: .5rem;
+        margin-right: .25rem;
+        box-sizing: border-box;
+
+        &.name {grid-area: name;}
+        &.location {grid-area: location;}
+        &.adress {grid-area: adress;}
+        &.price {grid-area: price;}
+        &.date {grid-area: date;}
+        &.month {grid-area: month;}
+        &.starttime {grid-area: starttime;}
+        &.endtime {grid-area: endtime;}
+        &.spots {grid-area: spots;}
       }
+
+      a {
+        background: Hotpink;
+        grid-area: btn;
+        padding: 0;
+        margin: .5rem .5rem 0 0;
+        align-items: center;
+      }
+
     }
   }
 }

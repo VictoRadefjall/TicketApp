@@ -26,8 +26,17 @@ export default new Vuex.Store({
   },
   actions: {
     async getEvents(data) {
-        let events = await axios.get('http://localhost:3000/events')
-        data.commit('insertEvents', events.data)
+      let events = await axios.get('http://localhost:3000/events')
+      data.commit('insertEvents', events.data)
+    },
+    async createEvent(data, newEvent) {
+      try {
+        await axios.post('http://localhost:3000/events', newEvent);
+        data.dispatch('getEvents')
+      }
+      catch(err) {
+        console.error(err)
+      }
     }
   }
 })
