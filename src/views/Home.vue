@@ -33,6 +33,7 @@ export default {
   a {
     margin-top: 2rem;
     text-transform: uppercase;
+    text-decoration: none;
   }
   .button {
     @extend %center;

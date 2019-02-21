@@ -41,7 +41,7 @@
 
 <script>
 export default {
-  name: 'AdminLJ',
+  name: 'Admin',
   data() {
     return {
       newEvent: {
