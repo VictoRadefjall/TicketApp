@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/events">Events</router-link> |
       <router-link to="/verify">Verify</router-link> |
-      <router-link to="/admin">Admin</router-link> |
+      <router-link to="/admin">Admin</router-link>
     </div>
      <transition name="rotate" mode="out-in">
       <router-view></router-view>

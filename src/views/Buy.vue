@@ -1,7 +1,5 @@
 <template>
-
   <main>
-
     <section v-for="event in event" :key="event.id" :item="item" class="buy">
 
     <p class="intro">You are about to score some tickets to</p>
@@ -17,6 +15,11 @@
       <div class="item calc" @click="dec">–</div>
       <div class="item"> {{ numOfTickets }} </div>
       <div class="item calc" @click="inc">+</div>
+    </section>
+
+    <section class="name">
+      <span class="event-info">Personalize your ticket</span>
+      <input type="text" v-model="name" placeholder="Enter your name..." />
     </section>
 
     <div class="button">
@@ -35,6 +38,11 @@
 export default {
   name: 'buy',
   props: ['item'],
+  data() {
+    return {
+      name: ''
+    }
+  },
   computed: {
     tickets() {
       return this.$store.state.tickets;
@@ -57,7 +65,7 @@ export default {
       this.$store.commit('dec');
     },
     buyTickets() {
-      this.$store.dispatch('buy', {event: this.event[0]._id, numOfTickets: this.numOfTickets })
+      this.$store.dispatch('buy', {event: this.event[0]._id, uniqueName: this.name, numOfTickets: this.numOfTickets })
     },
   },
 }
@@ -65,12 +73,12 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans|Libre+Barcode+39+Text|Sansita');
+@import '../scss/main.scss';
 
 main {
   background: inherit;
   padding: 20px;
 }
-
 
 // GRID AREAS AND LAYOUT
 .buy {
@@ -85,7 +93,7 @@ main {
     border-radius: 5px;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 20px 50px 5px 150px 5px 200px 25px 100px;
+    grid-template-rows: 20px 50px 5px 150px 5px 30px 200px 30px 50px 80px;
     grid-template-areas:
     "."
     "intro"
@@ -93,6 +101,8 @@ main {
     "event"
     "."
     "rectangle"
+    "."
+    "name"
     "."
     "btn"
     ;
@@ -104,7 +114,23 @@ main {
   color: rgb(201, 80, 11);
   font-size: 1.1rem;
 }
-@import '../scss/main.scss';
+
+.name {
+  grid-area: name;
+
+  input[type="text"] {
+    height: 5vh;
+    width: 50vw;
+    max-width: 240px;
+    color: rgb(36, 36, 36);
+    background: rgb(247, 244, 244);
+    font-size: 1rem;
+    border: none;
+    padding: .5rem;
+    border-radius: 3px;
+    margin-top: .35rem;
+  }
+}
 
 .event-info {
   width: 100%;
@@ -130,7 +156,8 @@ main {
     #price {
       grid-column: 1 / span 3;
       font-size: 2.2rem;
-
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
     }
 
     .item {
@@ -138,10 +165,21 @@ main {
       padding: 2rem;
       color: white;
     }
+
+    :nth-child(2) {
+      border-bottom-left-radius: 3px;
+    }
+
+    :nth-child(4) {
+      border-bottom-right-radius: 3px;
+    }
+  
   }
+
 
 a {
   text-decoration: none;
+  border-radius: 3px;
   
   &.btn {
     display: flex;
@@ -149,9 +187,10 @@ a {
     align-items: center;
     border: solid 1px rgba(255, 255, 255, 0.842);
     color: rgb(255, 251, 232);
-    height: 2.5rem;
+    height: 1.5rem;
     border-radius: 3px;
-    max-width: 20rem;
+    max-width: 80vw;
+    width: 18rem;
     padding: .8rem;
   }
 
@@ -177,7 +216,6 @@ div {
 }
 
 
-
 // FONT COLORS & SIZE
 
 p {
@@ -192,7 +230,7 @@ h2 {
 }
 
 .event{
-  p{
+  p {
     font-size: .8rem;
   }
 
