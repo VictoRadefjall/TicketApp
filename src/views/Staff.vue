@@ -26,6 +26,7 @@
     <input type="text" name="code" :value="code.toUpperCase()" placeholder="Enter ticketcode" @input="code = $event.target.value.toUpperCase()" onkeypress="return ((event.charCode > 64 && event.charCode < 90) || (event.charCode > 96 && event.charCode < 123) || event.charCode == 32 || (event.charCode >= 48 && event.charCode <= 57));" @keydown.space="(event) => event.preventDefault()" maxlength="6" />
     <a href="#" @click="verifyTicket">Verify</a>
   </section>
+
 </main>
 </template>
 
@@ -71,6 +72,7 @@ export default {
 #staff {
   margin-top: 3vw;
   background: inherit;
+  color: white;
 
   h1 {
     text-transform: uppercase;
@@ -147,10 +149,19 @@ export default {
     }
 
   .valid {
-    color: green;
+    color: rgb(13, 158, 13);
   }
   .invalid {
-    color: red;
+    color: rgb(223, 19, 19);
+  }
+
+  .scanText {
+    color: #f3b01e;
+    cursor: pointer;
+  }
+
+  .scanText:hover {
+    text-decoration: underline;
   }
 }
 

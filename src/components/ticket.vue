@@ -6,40 +6,43 @@
 
         <div class="ticket-box" v-for="ticket in tickets" :key="ticket.id">
 
-                <div class="eventname rounded">
-                    <p class="desc">What</p>
-                    <h2> {{ ticket.event.name }} </h2>
-                </div>
+            <div class="eventname rounded">
+                <p class="desc">What</p>
+                <h2> {{ ticket.event.name }} </h2>
+            </div>
 
-                <div class="event-where rounded">
-                    <p class="desc">Where</p>
-                    <h3> {{ ticket.event.place }} </h3>
-                    <p class="adress"> {{ ticket.event.adress }}</p>
-                </div>
+            <div class="event-where rounded">
+                <p class="desc">Where</p>
+                <h3> {{ ticket.event.place }} </h3>
+                <p class="adress"> {{ ticket.event.adress }}</p>
+            </div>
 
 
-                <div class="one">
-                    <p class="desc">when</p>
-                    <p class="info">{{ ticket.event.date.date }} {{ ticket.event.date.month }}</p>
-                </div>
+            <div class="one">
+                <p class="desc">when</p>
+                <p class="info">{{ ticket.event.date.date }} {{ ticket.event.date.month }}</p>
+            </div>
 
-                <div class="two">
-                    <p class="desc">from</p>
-                    <p class="info">{{ ticket.event.startTime }}</p>
-                </div>
+            <div class="two">
+                <p class="desc">from</p>
+                <p class="info">{{ ticket.event.startTime }}</p>
+            </div>
 
-                <div class="three">
-                    <p class="desc">to</p>
-                    <p class="info">{{ ticket.event.endTime }}</p>
-                </div>
+            <div class="three">
+                <p class="desc">to</p>
+                <p class="info">{{ ticket.event.endTime }}</p>
+            </div>
 
 
             <div class="event-place rounded">
                 <p class="desc">Info</p>
-                    <p class="adress"> {{ ticket.event.info }} </p>
+                <p class="adress"> {{ ticket.event.info }} </p>
+                <p class="desc"># your-unique-id</p>
+                <p class="name"> {{ ticket.uniqueName }} </p>
             </div>
+
             <div class="barcode rounded">
-               <p class="code"> {{ ticket.code }} </p> 
+                <p class="code"> {{ ticket.code }} </p> 
             </div>
       
         </div>
@@ -48,7 +51,7 @@
 
 <script>
 export default {
-    name:'ticket',
+    name: 'ticket',
     computed: {
         event() {
             var name = this.$route.params.name;
@@ -58,7 +61,7 @@ export default {
         },
         tickets() {
             return this.$store.state.tickets;
-        }
+        },
     },   
 }
 </script>
@@ -75,7 +78,6 @@ main {
     /* background: rgba(17, 17, 27, 0.932); */
     /* background: rgb(184, 184, 184); */
 }
-
 
 
 /* TICKET SHADOWS */
@@ -113,7 +115,7 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 5px;
-    grid-template-rows: 5px 100px 5px 150px 5px 75px 5px 100px 5px 100px 5px;
+    grid-template-rows: 5px 100px 5px 150px 5px 75px 5px 150px 5px 100px 5px;
     grid-template-areas:
     ". . ."
     "eventname eventname eventname"
@@ -163,7 +165,13 @@ main {
 .event-place {
     grid-area: place;
     background: rgba(225, 228, 225, 0.637);
+
 }
+
+.event-place :nth-child(3) {
+    margin-top: 2rem;
+}
+
 .barcode {
     grid-area: barcode;
     background: rgba(225, 228, 225, 0.637);
