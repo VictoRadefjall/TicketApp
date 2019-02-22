@@ -45,13 +45,13 @@ export default {
       font-family: Sansita;
       font-weight: bold;
       font-style: italic;
-      color: HotPink;
+      color: orange;
       font-size: 3rem;
     }
 
     input {
       flex: 1;
-      background-color: rgba(192,192,192,0.5);
+      background-color: rgba(192, 192, 192, 0.151);
       color: silver;
       font-size: 1rem;
       font-style: italic;
@@ -59,6 +59,7 @@ export default {
       border-radius: 3px;
       margin: 0 3rem;
       padding: 1rem;
+      border-bottom: solid 3px orange;
     }
   }
 

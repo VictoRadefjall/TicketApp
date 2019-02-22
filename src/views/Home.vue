@@ -27,7 +27,7 @@ export default {
   margin-top: 5vw;
 
   .title {
-    color: #FF67B3;
+    color: rgb(255, 182, 46);
   }
 
   a {
@@ -49,7 +49,8 @@ export default {
   }
 
   .button:hover {
-    background: hotpink;
+    background: orange;
+    border: none;
   }
 
 }

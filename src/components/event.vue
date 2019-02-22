@@ -100,6 +100,7 @@ body {
       font-family: Fira Sans;
       font-size: 2rem;
       margin-top: 1rem;
+      color: rgb(178, 95, 255);
     }
 
     :nth-child(2) { // platsen
@@ -109,7 +110,7 @@ body {
       margin-top: .5rem;
     }
     :nth-child(4) { // priset
-      color: Khaki;
+      color: orange;
       font-weight: bold;
       font-size: 1.2rem;
       align-self: flex-end;
@@ -118,8 +119,16 @@ body {
   }
 }
 
+h1:hover {
+  color: white;
+}
+a:hover{
+  background: linear-gradient(rgba(178, 95, 255, 0.315),rgba(0, 128, 0, 0));
+  border-radius: 20px;
+}
 .event:hover {
-  border-left: 5px solid hotpink;
+  border-left: 5px solid orange;
+
 }
 
 </style>
