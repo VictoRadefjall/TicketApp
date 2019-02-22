@@ -47,19 +47,12 @@ export default {
       font-style: italic;
       color: orange;
       font-size: 3rem;
-      letter-spacing: 5px;
-
     }
 
     input {
       flex: 1;
-<<<<<<< HEAD
       background-color: rgba(192, 192, 192, 0.151);
       color: silver;
-=======
-      background-color: rgba(192,192,192,0.5);
-      color: white;
->>>>>>> 6e3c1a30ce2c493e2e5e1791e56876a118661bb3
       font-size: 1rem;
       font-style: italic;
       border: none;
