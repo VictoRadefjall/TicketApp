@@ -96,10 +96,10 @@ export default {
     }
 
   .valid {
-    color: green;
+    color: rgb(13, 158, 13);
   }
   .invalid {
-    color: red;
+    color: rgb(223, 19, 19);
   }
 
   .scanText {

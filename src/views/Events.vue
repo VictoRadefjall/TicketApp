@@ -52,7 +52,7 @@ export default {
     input {
       flex: 1;
       background-color: rgba(192,192,192,0.5);
-      color: silver;
+      color: white;
       font-size: 1rem;
       font-style: italic;
       border: none;

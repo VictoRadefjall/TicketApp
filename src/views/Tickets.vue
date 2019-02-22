@@ -2,7 +2,7 @@
   <main id="ticket">
     <h3>Thanks for your order!
     <br/>
-    We have stolen {{ tickets[0].event.price * numOfTickets }}:- from your bank account.</h3>
+    We have stolen {{ event.price * numOfTickets }}:- from your bank account.</h3>
     <ticket></ticket>
   </main>
 </template>
@@ -19,8 +19,8 @@ export default {
     numOfTickets() {
       return this.$store.state.numOfTickets;
     },
-    tickets() {
-        return this.$store.state.tickets;
+    event() {
+      return this.$store.state.event;
     }
   },
   beforeMount() {
