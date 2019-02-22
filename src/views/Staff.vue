@@ -59,7 +59,6 @@ export default {
     chooseEvent(event){
       this.showModal = false;
       this.currentEvent = event.name;
-      console.log(this.currentEvent)
     }
     ///
   }
