@@ -128,13 +128,8 @@ a:hover{
   border-radius: 20px;
 }
 .event:hover {
-<<<<<<< HEAD
-  border-left: 5px solid #ff7100;
-  background: linear-gradient(#78f70273, rgba(0, 128, 0, 0));
-  border-top-right-radius: 30px;
-=======
   border-left: 5px solid orange;
->>>>>>> master
+  border-top-right-radius: 30px;
 
 }
 

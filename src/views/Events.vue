@@ -1,13 +1,8 @@
 <template>
   <main id="events">
     <h1>Events</h1>
-<<<<<<< HEAD
-    <input type="text" name="" placeholder="Search for events">
-    <event v-for="(item, index) in events" :key="index" :item="item" />
-=======
     <input type="text" v-model="search" placeholder="Search events">
     <event v-for="(item, index) in filterEvents" :key="index" :item="item" />
->>>>>>> master
   </main>
 </template>
 
@@ -50,12 +45,10 @@ export default {
       font-family: Sansita;
       font-weight: bold;
       font-style: italic;
-<<<<<<< HEAD
-      color: #ff7100;
-=======
       color: orange;
->>>>>>> master
       font-size: 3rem;
+      letter-spacing: 5px;
+
     }
 
     input {

@@ -1,6 +1,11 @@
 <template>
   <main id="admin">
-    <h1>Admin</h1>
+    <div class="top-box">
+      <img src="../assets/logo.png" alt="where its at logo" class="logo">
+      <h1>Admin - Add & Manage Events</h1>
+      </div>
+
+    
     <section class="container">
       <table cellspacing="0">
         <thead>
@@ -86,6 +91,7 @@ export default {
 
 @import '../scss/main.scss';
 
+
 #admin {
   display: flex;
   justify-content: center;
@@ -93,12 +99,27 @@ export default {
   background: none;
   color: White;
 
+  .top-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 1rem;
+  }
+
+  .logo {
+    height: 50px;
+    width: 50px;
+    margin-right: 2rem;
+  }
+
   .container {
     display: grid;
     grid-template-columns: 3fr 1fr;
+    
 
     table {
-      background: Black;
+      background: rgb(4, 4, 20);
+      border-radius: 5px;
       box-sizing: border-box;
       padding: 1rem;
       margin: 1rem;
@@ -106,9 +127,10 @@ export default {
       thead {
          tr {
            th {
-             color: HotPink;
+             color: orange;
              text-align: left;
              padding: 1rem;
+             border-bottom: 2px solid grey;
            }
          }
       }
@@ -131,7 +153,8 @@ export default {
     }
 
     aside {
-      background: Black;
+      background: rgb(4, 4, 20);
+      border-radius: 5px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 3rem 2rem;
@@ -152,7 +175,7 @@ export default {
       margin: 1rem;
 
       h2 {
-        color: HotPink;
+        color: orange;
         grid-area: title;
         text-align: left;
         margin: 0 0 0 .5rem;
@@ -183,7 +206,7 @@ export default {
 
       div {
         @extend %center;
-        background: Hotpink;
+        background: orange;
         grid-area: btn;
         padding: 0;
         margin: .5rem .5rem 0 0;

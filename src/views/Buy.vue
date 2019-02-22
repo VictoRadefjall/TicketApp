@@ -156,9 +156,11 @@ a {
   }
 
   &:hover {
-    background: rgb(36, 36, 36);
+    background: rgba(5, 2, 20, 0.308);
     // font-size: 1.2rem;
     text-decoration:none;
+    border: none;
+    border-radius: 5px;
   }
 
 }
