@@ -25,7 +25,7 @@ export default {
 @import '../scss/main.scss';
 
 #ticket {
-  background: $background-color;
+  background: inherit;
   color: white;
 }
 

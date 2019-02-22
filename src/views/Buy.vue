@@ -67,7 +67,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans|Libre+Barcode+39+Text|Sansita');
 
 main {
-  background: rgba(17, 17, 27, 0.932);
+  background: inherit;
   padding: 20px;
 }
 
