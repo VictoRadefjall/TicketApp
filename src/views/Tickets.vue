@@ -1,7 +1,10 @@
 <template>
-<main id="ticket">
-  <ticket></ticket>
-</main>
+  <main id="ticket">
+    <h3>Thanks for your order!
+    <br/>
+    We have stolen {{ event.price * numOfTickets }}:- from your bank account.</h3>
+    <ticket></ticket>
+  </main>
 </template>
 
 <script>
@@ -12,11 +15,19 @@ export default {
   components: {
     ticket
   },
+  computed: {
+    numOfTickets() {
+      return this.$store.state.numOfTickets;
+    },
+    event() {
+      return this.$store.state.event;
+    }
+  },
   beforeMount() {
     if(localStorage.getItem('tickets')) {
       this.$store.dispatch('getTickets');
     }
-  }
+  },
 };
 
 </script>
