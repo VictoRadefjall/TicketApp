@@ -52,7 +52,7 @@ export default new Vuex.Store({
         data.dispatch('getEvents')
       }
       catch(err) {
-        throw err;
+        console.error(err);
       }
     },
     async buy(ctx, orderData) {

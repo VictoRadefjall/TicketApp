@@ -9,7 +9,7 @@
     <p v-if="!verifyData.verified" class="invalid"> {{ verifyData.message }} </p>
   </section>
 
-  <!-- -->
+  
 
   <div class="modal" v-show="showModal">
     <h2>Which event?</h2>
@@ -20,7 +20,7 @@
     </ul>
   </div>
 
-  <!-- -->
+  
 
   <section class="verifyForm" v-show="!showModal">
     <input type="text" name="code" :value="code.toUpperCase()" placeholder="Enter ticketcode" @input="code = $event.target.value.toUpperCase()" onkeypress="return ((event.charCode > 64 && event.charCode < 90) || (event.charCode > 96 && event.charCode < 123) || event.charCode == 32 || (event.charCode >= 48 && event.charCode <= 57));" @keydown.space="(event) => event.preventDefault()" maxlength="6" />
@@ -90,7 +90,8 @@ export default {
     color: White;
 
     h2 {
-      color: Hotpink;
+      color: orange;
+      letter-spacing: 5px;
     }
     ul {
       @extend %center;
@@ -98,10 +99,20 @@ export default {
       padding: 0;
 
       li {
+        width: 100%;
         list-style: none;
         font-size: 1.2rem;
         padding: .2rem;
         cursor: pointer;
+        border: solid 2px orange;
+        padding: 1rem;
+        margin: 5px;
+        border-radius: 5px;
+      }
+
+      li:hover {
+        background: orange;
+        color: rgb(49, 49, 49);
       }
     }
   }
@@ -110,7 +121,7 @@ export default {
   .verifyForm {
     @extend %center;
     flex-direction: column;
-    background: #FF67B3;
+    background: orange;
     margin: auto;
     width: 75vw;
     max-width: 500px;
