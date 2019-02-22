@@ -7,7 +7,11 @@
   <section class="validation" v-if="verifyData">
     <p v-if="verifyData.verified" class="valid"> {{ verifyData.message }} </p>
     <p v-if="!verifyData.verified" class="invalid"> {{ verifyData.message }} </p>
-  </section> 
+  </section>
+
+  <ul class="modal" v-if="showModal" v-for="event in events" :key="event._id">
+    <li href="#" >{{ event.name }}</a>
+  </ul>
 
   <section class="verifyForm">
     <input type="text" name="code" :value="code.toUpperCase()" placeholder="Enter ticketcode" @input="code = $event.target.value.toUpperCase()" onkeypress="return ((event.charCode > 64 && event.charCode < 90) || (event.charCode > 96 && event.charCode < 123) || event.charCode == 32 || (event.charCode >= 48 && event.charCode <= 57));" @keydown.space="(event) => event.preventDefault()" maxlength="6" />
@@ -21,12 +25,16 @@ export default {
   name: 'verify',
   data() {
     return {
-      code: ''
+      code: '',
+      showModal: true
     }
   },
   computed: {
     verifyData(){
       return this.$store.state.verifyData;
+    },
+    events() {
+      return this.$store.state.events;
     }
   },
   methods: {
@@ -47,11 +55,32 @@ export default {
   h1 {
     text-transform: uppercase;
   }
-  
+
   h3 {
     margin-top: 0rem;
     color: #FF67B3;
   }
+
+  ///
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background: rgba($color: White, $alpha: .5);
+
+    a {
+      color: White;
+
+      &:active {
+        text-transform: none;
+      }
+    }
+  }
+
+  ///
 
   .verifyForm {
     @extend %center;
